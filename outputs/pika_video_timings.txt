@@ -1,0 +1,41 @@
+======================================================================
+Pika H3 Flex (Cloud TPU Trillium v6e-4) Video Generation & Timing Report
+======================================================================
+Accelerator: Cloud TPU Trillium v6e-4 (4 chips, OpenXLA xla:0)
+Model Repository: Pika-Labs/Pika-H3-Flex (commit 0ddf55ad70)
+
+[1] Hugging Face Parallel API Download:
+  - Downloaded Payload: 74.73 GB
+  - Duration: 34.02s (34.02s)
+  - Effective Throughput: 2249.6 MB/s (HF Transfer, 16 parallel workers)
+  - Hardware & Weight Init: 7.58s
+
+[2] 5-Second Video Generation:
+  - Output: /mnt/pika_data/outputs/pika_5s.mp4 (0.49 MB)
+  - Duration & Frames: 5.17s (124 frames @ 24 fps, 832x480)
+  - Diffusion Steps: 6 (6-NFE LoRA, 49920 tokens)
+  - Step Timings (ms): [2345.86, 2.59, 0.36, 0.34, 0.35, 0.34]
+  - Denoise Time: 2.350s (avg 391.6 ms/step)
+  - Decode & MP4 Mux Time: 6.696s
+  - Total Time (5s Video): 10.03s (10.028s, 12.36 fps)
+
+[3] 10-Second Video Generation (Extended 5s -> 10s):
+  - Output: /mnt/pika_data/outputs/pika_10s.mp4 (1.37 MB)
+  - Duration & Frames: 10.12s (243 frames @ 24 fps, 832x480)
+  - Diffusion Steps: 6 (6-NFE LoRA, 95160 tokens)
+  - Step Timings (ms): [2643.06, 2.67, 0.39, 0.35, 0.34, 0.36]
+  - Denoise Time: 2.647s (avg 441.2 ms/step)
+  - Decode & MP4 Mux Time: 7.283s
+  - Total Time (10s Video): 13.14s (13.143s, 18.49 fps)
+
+[4] Total Pipeline Execution Time: 1m 5.96s (65.96s)
+======================================================================
+
+[5] 4K UHD (3840x2160) Spatial Upscaling & Micro-Detail Restoration:
+  - 5s 4K Output: /data/pika/outputs/pika_5s_4k.mp4 (15.13 MB, 3840x2160)
+    * 4K Upscale Time (124 frames): 55.06s (2.25 fps)
+    * End-to-End 5s (Denoise + Decode + 4K Upscale): 65.09s
+  - 10s 4K Output: /data/pika/outputs/pika_10s_4k.mp4 (33.78 MB, 3840x2160)
+    * 4K Upscale Time (243 frames): 111.73s (2.17 fps)
+    * End-to-End 10s (Denoise + Decode + 4K Upscale): 124.87s
+======================================================================

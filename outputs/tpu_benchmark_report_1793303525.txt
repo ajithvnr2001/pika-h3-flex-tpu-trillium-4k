@@ -1,0 +1,11 @@
+======================================================================
+Pika H3 Flex Cloud TPU Trillium (v6e) Remote Harness
+======================================================================
+
+[1/4] Detecting Host Architecture and Environment...
+OS/Kernel: Linux-6.8.0-1015-gcp-x86_64-with-glibc2.35
+Python: 3.10.12
+PyTorch not found in current Python environment: No module named 'torch'
+
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...

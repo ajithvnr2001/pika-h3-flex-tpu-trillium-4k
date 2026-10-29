@@ -1,0 +1,75 @@
+{
+  "pipeline": "Pika H3 Flex FL2VA (Option 1: Cloud TPU Trillium v6e-4)",
+  "accelerator": "Cloud TPU Trillium v6e-4 (4 chips, OpenXLA xla:0)",
+  "model_repo": "Pika-Labs/Pika-H3-Flex",
+  "model_revision": "0ddf55ad7067ca1e76812253bd7b4600df87f759",
+  "weights_downloaded_gb": 74.73,
+  "weights_download_time_seconds": 34.02,
+  "weights_download_speed_mbps": 2249.6,
+  "hardware_and_weights_init_seconds": 7.58,
+  "video_5s_metrics": {
+    "duration_target_seconds": 5,
+    "output_file": "/mnt/pika_data/outputs/pika_5s.mp4",
+    "file_size_mb": 0.49,
+    "actual_duration_seconds": 5.17,
+    "frames_rendered": 124,
+    "fps": 24,
+    "resolution": "832x480",
+    "latent_tokens": 49920,
+    "diffusion_steps": 6,
+    "step_times_ms": [
+      2345.86,
+      2.59,
+      0.36,
+      0.34,
+      0.35,
+      0.34
+    ],
+    "denoise_time_seconds": 2.35,
+    "encode_time_seconds": 6.696,
+    "total_time_seconds": 10.028,
+    "effective_fps": 12.36
+  },
+  "video_10s_metrics": {
+    "duration_target_seconds": 10,
+    "output_file": "/mnt/pika_data/outputs/pika_10s.mp4",
+    "file_size_mb": 1.37,
+    "actual_duration_seconds": 10.12,
+    "frames_rendered": 243,
+    "fps": 24,
+    "resolution": "832x480",
+    "latent_tokens": 95160,
+    "diffusion_steps": 6,
+    "step_times_ms": [
+      2643.06,
+      2.67,
+      0.39,
+      0.35,
+      0.34,
+      0.36
+    ],
+    "denoise_time_seconds": 2.647,
+    "encode_time_seconds": 7.283,
+    "total_time_seconds": 13.143,
+    "effective_fps": 18.49
+  },
+  "total_run_time_seconds": 65.96,
+  "video_5s_4k_upscale_metrics": {
+    "output_file_4k": "/data/pika/outputs/pika_5s_4k.mp4",
+    "resolution_4k": "3840x2160",
+    "file_size_4k_mb": 15.13,
+    "frames": 124,
+    "duration_seconds": 5.17,
+    "upscale_4k_time_seconds": 55.057,
+    "upscale_4k_fps": 2.25
+  },
+  "video_10s_4k_upscale_metrics": {
+    "output_file_4k": "/data/pika/outputs/pika_10s_4k.mp4",
+    "resolution_4k": "3840x2160",
+    "file_size_4k_mb": 33.78,
+    "frames": 243,
+    "duration_seconds": 10.12,
+    "upscale_4k_time_seconds": 111.728,
+    "upscale_4k_fps": 2.17
+  }
+}

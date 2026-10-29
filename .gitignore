@@ -1,0 +1,6 @@
+# Exclude external ComfyUI clone and Python caches
+ComfyUI/
+__pycache__/
+*.pyc
+.env
+*.key

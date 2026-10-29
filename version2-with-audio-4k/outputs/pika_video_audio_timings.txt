@@ -1,0 +1,39 @@
+==========================================================================
+Pika H3 Flex v2 (Joint Video + Stereo Audio + 4K UHD) TPU Timing Report
+==========================================================================
+Accelerator: Cloud TPU Trillium v6e-4 (4 chips, OpenXLA xla:0)
+Model Repository: Pika-Labs/Pika-H3-Flex (commit 0ddf55ad70)
+
+[1] Hugging Face Parallel API Download:
+  - Downloaded Payload: 74.73 GB
+  - Duration: 22.01s (22.01s @ 3477.2 MB/s, 16 workers)
+  - Hardware, FL2VA Adapter & Audio VAE Init: 7.79s
+
+[2] 5-Second Joint Video + Stereo Audio + 4K UHD:
+  - Base Output: /mnt/pika_data/outputs/pika_5s_audio.mp4 (0.61 MB, 832x480)
+  - 4K UHD Output: /mnt/pika_data/outputs/pika_5s_audio_4k.mp4 (15.31 MB, 3840x2160)
+  - Audio Stream: AAC 48000 Hz (2ch Stereo)
+  - Duration & Frames: 5.17s (124 frames @ 24 fps)
+  - Step Timings (ms): [2343.02, 1.83, 1.05, 1.01, 1.01, 1.01]
+  - Joint 6-Step Denoise Time: 2.349s
+  - Audio VAE Decode & Synthesis Time: 0.277s
+  - Video Decode & Stereo AAC Mux Time: 6.962s
+  - Base Total Time (5s Video+Audio): 10.607s (11.69 fps)
+  - 4K UHD Upscale Time (3840x2160): 2.955s (41.96 fps)
+  - End-to-End 5s 4K Video+Audio Time: 13.562s
+
+[3] 10-Second Extended Joint Video + Stereo Audio + 4K UHD:
+  - Base Output: /mnt/pika_data/outputs/pika_10s_audio.mp4 (1.6 MB, 832x480)
+  - 4K UHD Output: /mnt/pika_data/outputs/pika_10s_audio_4k.mp4 (34.17 MB, 3840x2160)
+  - Audio Stream: AAC 48000 Hz (2ch Stereo)
+  - Duration & Frames: 10.12s (243 frames @ 24 fps)
+  - Step Timings (ms): [2694.41, 3.04, 1.06, 1.02, 1.02, 1.01]
+  - Joint 6-Step Denoise Time: 2.702s
+  - Audio VAE Decode & Synthesis Time: 0.371s
+  - Video Decode & Stereo AAC Mux Time: 7.672s
+  - Base Total Time (10s Video+Audio): 14.054s (17.29 fps)
+  - 4K UHD Upscale Time (3840x2160): 4.700s (51.7 fps)
+  - End-to-End 10s 4K Video+Audio Time: 18.754s
+
+[4] Total Pipeline Execution Time: 1m 3.54s (63.54s)
+==========================================================================

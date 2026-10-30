@@ -1,0 +1,25 @@
+Fri Oct 30 14:00:41 UTC 2026
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+[14:00:58] Workflow=t2va canvas=832x480 duration=5s frames=124 seed=42
+[ERROR] `min_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[ERROR] `max_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[14:01:01] Components + FL2VA adapter loaded on host in 3.0s
+[14:01:07] TPU devices: ['xla:0', 'xla:1', 'xla:2', 'xla:3']
+[14:01:16] Transformer weights moved to TPU in 9.2s; blocks per chip: xla:0=0-12, xla:1=13-25, xla:2=26-38, xla:3=39-49
+[14:01:17] Generating ...
+  0%|          | 0/6 [00:00<?, ?it/s][14:04:43]   denoise step 1: transformer forward 202.22s
+ 17%|█▋        | 1/6 [03:22<16:51, 202.23s/it][14:04:57]   denoise step 2: transformer forward 14.09s
+ 33%|███▎      | 2/6 [03:36<06:06, 91.57s/it] [14:05:12]   denoise step 3: transformer forward 14.06s
+ 50%|█████     | 3/6 [03:50<02:48, 56.18s/it][14:05:26]   denoise step 4: transformer forward 14.00s
+ 67%|██████▋   | 4/6 [04:04<01:19, 39.54s/it][14:05:40]   denoise step 5: transformer forward 13.98s
+ 83%|████████▎ | 5/6 [04:18<00:30, 30.33s/it][14:05:54]   denoise step 6: transformer forward 14.05s
+[14:06:59] TIMINGS {"load_components_s": 3.02, "transformer_to_tpu_s": 15.52, "generation_s": 341.0, "text_encoder_s": 4.34, "video_vae_decode_s": 61.95, "audio_vae_decode_s": 1.66, "denoise_step_s": [202.216, 14.095, 14.055, 13.997, 13.985, 14.05], "denoise_total_s": 272.4, "encode_mp4_s": 0.89, "end_to_end_s": 360.43}
+[14:06:59] DONE /dev/shm/pika/outputs/rajasthan_5s.mp4
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+STEP 2 done: /dev/shm/pika/outputs/rajasthan_5s.mp4 on pika-v4-tpu
+EXIT=0
+Fri Oct 30 14:07:15 UTC 2026

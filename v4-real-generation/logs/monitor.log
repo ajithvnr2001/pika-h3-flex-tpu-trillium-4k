@@ -1,0 +1,216 @@
+===== 2026-10-30 10:53:10 UTC
+TPU pika-v4-tpu: CREATING
+===== 2026-10-30 10:58:12 UTC
+TPU pika-v4-tpu: READY
+--- /root/bootstrap.log
+  File "<string>", line 1, in <module>
+  File "/root/pika-venv/lib/python3.12/site-packages/torch_xla/__init__.py", line 10, in <module>
+    import _XLAC
+ImportError: libpython3.12.so.1.0: cannot open shared object file: No such file or directory
+Mem:             708           1         699           0           6         700
+tmpfs           420G     0  420G   0% /dev/shm
+===== 2026-10-30 11:03:21 UTC
+TPU pika-v4-tpu: READY
+--- /root/bootstrap.log
+  path: /dev/shm/pika/model
+Downloaded 146 GB in 18 s
+137G	/dev/shm/pika/model
+[11:00:56] Bootstrap done
+--- /root/run.log
+[11:01:41] Transformer weights moved to TPU in 9.3s; blocks per chip: xla:0=0-12, xla:1=13-25, xla:2=26-38, xla:3=39-49
+[11:01:41] Generating ...
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/6 [00:00<?, ?it/s]
+Mem:             708          11         553         136         143         554
+tmpfs           420G  137G  284G  33% /dev/shm
+===== 2026-10-30 11:08:29 UTC
+TPU pika-v4-tpu: READY
+--- /root/bootstrap.log
+  path: /dev/shm/pika/model
+Downloaded 146 GB in 18 s
+137G	/dev/shm/pika/model
+[11:00:56] Bootstrap done
+--- /root/run.log
+ 67%|██████▋   | 4/6 [04:48<01:43, 51.71s/it][11:06:46]   denoise step 5: transformer forward 12.29s
+ 83%|████████▎ | 5/6 [05:00<00:37, 37.51s/it][11:06:59]   denoise step 6: transformer forward 12.28s
+100%|██████████| 6/6 [05:13<00:00, 28.94s/it]
+100%|██████████| 6/6 [05:13<00:00, 52.20s/it]
+Mem:             708          11         552         136         143         554
+tmpfs           420G  137G  284G  33% /dev/shm
+===== 2026-10-30 11:13:38 UTC
+TPU pika-v4-tpu: READY
+--- /root/bootstrap.log
+  path: /dev/shm/pika/model
+Downloaded 146 GB in 18 s
+137G	/dev/shm/pika/model
+[11:00:56] Bootstrap done
+--- /root/run.log
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.89it/s]
+[11:11:19] TIMINGS {"load_components_s": 3.32, "transformer_to_tpu_s": 14.97, "generation_s": 577.01, "text_encoder_s": 4.44, "video_vae_decode_s": 256.87, "audio_vae_decode_s": 2.0, "denoise_step_s": [131.493, 132.433, 12.179, 12.429, 12.29, 12.282], "denoise_total_s": 313.11, "encode_mp4_s": 0.95, "end_to_end_s": 596.25}
+[11:11:19] DONE /dev/shm/pika/outputs/kerala_5s.mp4
+Mem:             708           2         562         136         143         563
+tmpfs           420G  137G  284G  33% /dev/shm
+===== 2026-10-30 11:18:46 UTC
+TPU pika-v4-tpu: READY
+--- /root/bootstrap.log
+  path: /dev/shm/pika/model
+Downloaded 146 GB in 18 s
+137G	/dev/shm/pika/model
+[11:00:56] Bootstrap done
+--- /root/run.log
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.89it/s]
+[11:11:19] TIMINGS {"load_components_s": 3.32, "transformer_to_tpu_s": 14.97, "generation_s": 577.01, "text_encoder_s": 4.44, "video_vae_decode_s": 256.87, "audio_vae_decode_s": 2.0, "denoise_step_s": [131.493, 132.433, 12.179, 12.429, 12.29, 12.282], "denoise_total_s": 313.11, "encode_mp4_s": 0.95, "end_to_end_s": 596.25}
+[11:11:19] DONE /dev/shm/pika/outputs/kerala_5s.mp4
+Mem:             708           2         562         136         143         563
+tmpfs           420G  137G  284G  33% /dev/shm
+===== 2026-10-30 11:23:54 UTC
+TPU pika-v4-tpu: READY
+--- /root/bootstrap.log
+  path: /dev/shm/pika/model
+Downloaded 146 GB in 18 s
+137G	/dev/shm/pika/model
+[11:00:56] Bootstrap done
+--- /root/run.log
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.89it/s]
+[11:11:19] TIMINGS {"load_components_s": 3.32, "transformer_to_tpu_s": 14.97, "generation_s": 577.01, "text_encoder_s": 4.44, "video_vae_decode_s": 256.87, "audio_vae_decode_s": 2.0, "denoise_step_s": [131.493, 132.433, 12.179, 12.429, 12.29, 12.282], "denoise_total_s": 313.11, "encode_mp4_s": 0.95, "end_to_end_s": 596.25}
+[11:11:19] DONE /dev/shm/pika/outputs/kerala_5s.mp4
+Mem:             708          11         552         137         143         553
+tmpfs           420G  138G  283G  33% /dev/shm
+===== 2026-10-30 11:29:03 UTC
+TPU pika-v4-tpu: READY
+--- /root/bootstrap.log
+  path: /dev/shm/pika/model
+Downloaded 146 GB in 18 s
+137G	/dev/shm/pika/model
+[11:00:56] Bootstrap done
+--- /root/run.log
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.89it/s]
+[11:11:19] TIMINGS {"load_components_s": 3.32, "transformer_to_tpu_s": 14.97, "generation_s": 577.01, "text_encoder_s": 4.44, "video_vae_decode_s": 256.87, "audio_vae_decode_s": 2.0, "denoise_step_s": [131.493, 132.433, 12.179, 12.429, 12.29, 12.282], "denoise_total_s": 313.11, "encode_mp4_s": 0.95, "end_to_end_s": 596.25}
+[11:11:19] DONE /dev/shm/pika/outputs/kerala_5s.mp4
+Mem:             708          12         551         137         144         553
+tmpfs           420G  138G  283G  33% /dev/shm
+===== 2026-10-30 11:34:12 UTC
+TPU pika-v4-tpu: READY
+--- /root/bootstrap.log
+  path: /dev/shm/pika/model
+Downloaded 146 GB in 18 s
+137G	/dev/shm/pika/model
+[11:00:56] Bootstrap done
+--- /root/run.log
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.89it/s]
+[11:11:19] TIMINGS {"load_components_s": 3.32, "transformer_to_tpu_s": 14.97, "generation_s": 577.01, "text_encoder_s": 4.44, "video_vae_decode_s": 256.87, "audio_vae_decode_s": 2.0, "denoise_step_s": [131.493, 132.433, 12.179, 12.429, 12.29, 12.282], "denoise_total_s": 313.11, "encode_mp4_s": 0.95, "end_to_end_s": 596.25}
+[11:11:19] DONE /dev/shm/pika/outputs/kerala_5s.mp4
+Mem:             708          12         550         137         145         552
+tmpfs           420G  138G  283G  33% /dev/shm
+===== 2026-10-30 11:39:20 UTC
+TPU pika-v4-tpu: READY
+--- /root/bootstrap.log
+  path: /dev/shm/pika/model
+Downloaded 146 GB in 18 s
+137G	/dev/shm/pika/model
+[11:00:56] Bootstrap done
+--- /root/run.log
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.89it/s]
+[11:11:19] TIMINGS {"load_components_s": 3.32, "transformer_to_tpu_s": 14.97, "generation_s": 577.01, "text_encoder_s": 4.44, "video_vae_decode_s": 256.87, "audio_vae_decode_s": 2.0, "denoise_step_s": [131.493, 132.433, 12.179, 12.429, 12.29, 12.282], "denoise_total_s": 313.11, "encode_mp4_s": 0.95, "end_to_end_s": 596.25}
+[11:11:19] DONE /dev/shm/pika/outputs/kerala_5s.mp4
+Mem:             708          12         550         137         145         552
+tmpfs           420G  138G  283G  33% /dev/shm
+===== 2026-10-30 11:44:29 UTC
+TPU pika-v4-tpu: READY
+--- /root/bootstrap.log
+  path: /dev/shm/pika/model
+Downloaded 146 GB in 18 s
+137G	/dev/shm/pika/model
+[11:00:56] Bootstrap done
+--- /root/run.log
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.89it/s]
+[11:11:19] TIMINGS {"load_components_s": 3.32, "transformer_to_tpu_s": 14.97, "generation_s": 577.01, "text_encoder_s": 4.44, "video_vae_decode_s": 256.87, "audio_vae_decode_s": 2.0, "denoise_step_s": [131.493, 132.433, 12.179, 12.429, 12.29, 12.282], "denoise_total_s": 313.11, "encode_mp4_s": 0.95, "end_to_end_s": 596.25}
+[11:11:19] DONE /dev/shm/pika/outputs/kerala_5s.mp4
+Mem:             708           2         560         137         144         563
+tmpfs           420G  138G  283G  33% /dev/shm
+===== 2026-10-30 11:49:39 UTC
+TPU pika-v4-tpu: READY
+--- /root/bootstrap.log
+  path: /dev/shm/pika/model
+Downloaded 146 GB in 18 s
+137G	/dev/shm/pika/model
+[11:00:56] Bootstrap done
+--- /root/run.log
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.89it/s]
+[11:11:19] TIMINGS {"load_components_s": 3.32, "transformer_to_tpu_s": 14.97, "generation_s": 577.01, "text_encoder_s": 4.44, "video_vae_decode_s": 256.87, "audio_vae_decode_s": 2.0, "denoise_step_s": [131.493, 132.433, 12.179, 12.429, 12.29, 12.282], "denoise_total_s": 313.11, "encode_mp4_s": 0.95, "end_to_end_s": 596.25}
+[11:11:19] DONE /dev/shm/pika/outputs/kerala_5s.mp4
+Mem:             708          13         549         137         145         551
+tmpfs           420G  138G  283G  33% /dev/shm
+===== 2026-10-30 11:54:47 UTC
+TPU pika-v4-tpu: READY
+--- /root/bootstrap.log
+  path: /dev/shm/pika/model
+Downloaded 146 GB in 18 s
+137G	/dev/shm/pika/model
+[11:00:56] Bootstrap done
+--- /root/run.log
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.89it/s]
+[11:11:19] TIMINGS {"load_components_s": 3.32, "transformer_to_tpu_s": 14.97, "generation_s": 577.01, "text_encoder_s": 4.44, "video_vae_decode_s": 256.87, "audio_vae_decode_s": 2.0, "denoise_step_s": [131.493, 132.433, 12.179, 12.429, 12.29, 12.282], "denoise_total_s": 313.11, "encode_mp4_s": 0.95, "end_to_end_s": 596.25}
+[11:11:19] DONE /dev/shm/pika/outputs/kerala_5s.mp4
+Mem:             708          13         549         137         145         551
+tmpfs           420G  138G  283G  33% /dev/shm
+===== 2026-10-30 11:59:56 UTC
+TPU pika-v4-tpu: READY
+--- /root/bootstrap.log
+  path: /dev/shm/pika/model
+Downloaded 146 GB in 18 s
+137G	/dev/shm/pika/model
+[11:00:56] Bootstrap done
+--- /root/run.log
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.89it/s]
+[11:11:19] TIMINGS {"load_components_s": 3.32, "transformer_to_tpu_s": 14.97, "generation_s": 577.01, "text_encoder_s": 4.44, "video_vae_decode_s": 256.87, "audio_vae_decode_s": 2.0, "denoise_step_s": [131.493, 132.433, 12.179, 12.429, 12.29, 12.282], "denoise_total_s": 313.11, "encode_mp4_s": 0.95, "end_to_end_s": 596.25}
+[11:11:19] DONE /dev/shm/pika/outputs/kerala_5s.mp4
+Mem:             708          15         547         137         145         549
+tmpfs           420G  138G  283G  33% /dev/shm
+===== 2026-10-30 12:05:04 UTC
+TPU pika-v4-tpu: READY
+--- /root/bootstrap.log
+  path: /dev/shm/pika/model
+Downloaded 146 GB in 18 s
+137G	/dev/shm/pika/model
+[11:00:56] Bootstrap done
+--- /root/run.log
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]
+Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.89it/s]
+[11:11:19] TIMINGS {"load_components_s": 3.32, "transformer_to_tpu_s": 14.97, "generation_s": 577.01, "text_encoder_s": 4.44, "video_vae_decode_s": 256.87, "audio_vae_decode_s": 2.0, "denoise_step_s": [131.493, 132.433, 12.179, 12.429, 12.29, 12.282], "denoise_total_s": 313.11, "encode_mp4_s": 0.95, "end_to_end_s": 596.25}
+[11:11:19] DONE /dev/shm/pika/outputs/kerala_5s.mp4
+Mem:             708           2         559         138         145         561
+tmpfs           420G  139G  282G  33% /dev/shm
+===== 2026-10-30 12:10:12 UTC
+TPU pika-v4-tpu: PREEMPTED
+===== 2026-10-30 12:15:14 UTC
+TPU pika-v4-tpu: PREEMPTED
+===== 2026-10-30 12:20:16 UTC
+TPU pika-v4-tpu: PREEMPTED
+===== 2026-10-30 12:25:18 UTC
+TPU pika-v4-tpu: CREATING
+===== 2026-10-30 12:30:20 UTC
+TPU pika-v4-tpu: READY
+--- /root/bootstrap.log
+  path: /dev/shm/pika/model
+Downloaded 146 GB in 35 s
+137G	/dev/shm/pika/model
+[12:29:08] Bootstrap done
+Mem:             708          10         553         136         143         555
+tmpfs           420G  137G  284G  33% /dev/shm
+===== 2026-10-30 12:35:28 UTC
+TPU pika-v4-tpu: PREEMPTED
+===== 2026-10-30 12:40:30 UTC
+TPU pika-v4-tpu:   resourceName: projects/genai25th01/locations/europe-west4-a/nodes/pika-v4-tpu
+===== 2026-10-30 12:45:32 UTC
+TPU pika-v4-tpu:   resourceName: projects/genai25th01/locations/europe-west4-a/nodes/pika-v4-tpu

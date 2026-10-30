@@ -1,0 +1,11 @@
+Fri Oct 30 13:32:54 UTC 2026
+Creating on-demand TPU pika-v4-tpu (v6e-4) in europe-west4-a ...
+Create request issued for: [pika-v4-tpu]
+Waiting for operation [projects/genai25th01/locations/europe-west4-a/operations/operation-1793367181850-65f0ed5d37656-93d20b6b-a2240cf8] to complete...
+...................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................failed.
+ERROR: (gcloud.compute.tpus.tpu-vm.create) {
+  "code": 8,
+  "message": "There is no more capacity in the zone \"europe-west4-a\"; you can try in another zone where Cloud TPU Nodes are offered (see https://cloud.google.com/tpu/docs/regions) [EID: 0x14aa65461ae2186c]"
+}
+EXIT=1
+Fri Oct 30 13:34:53 UTC 2026

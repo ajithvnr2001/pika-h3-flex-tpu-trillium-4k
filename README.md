@@ -1,5 +1,8 @@
 # Pika H3 Flex on Google Cloud TPU Trillium (`v6e-4`) — End-to-End 5s & 10s Extended 4K UHD Video + Synchronized Stereo Audio Pipeline
 
+> **Update 2026-10-30:** `version1-no-audio-4k/`, `version2-with-audio-4k/` and `v3-acceleration/` did **not** run the Pika model (random-tensor timing + the bundled sample clip). See [SIMULATED_RESULTS_NOTICE.md](SIMULATED_RESULTS_NOTICE.md). **Real generation, measured timings and the 4-command workflow are in [`v4-real-generation/`](v4-real-generation/).**
+
+
 A complete, beginner-to-expert engineering repository for running **[Pika-Labs/Pika-H3-Flex](https://huggingface.co/Pika-Labs/Pika-H3-Flex)** (built on the hybrid MiniMax-H3 audio-video Diffusion Transformer) on **Google Cloud TPU Trillium (`v6e-4`, 4 chips / `2x2` topology, `128 GB` HBM2e)** with:
 - **3.48 GB/s Parallel Hugging Face API Weight Streaming** (`74.73 GB` downloaded in **22.01 seconds** into a **150 GB `/dev/shm` RAM disk** using 16 parallel workers).
 - **6-Step Distilled Flow-Matching Trajectory (`FL2VA` LoRA)** on Cloud TPU Trillium Matrix Execution Units (`1.01 ms/step` warm MXU execution).

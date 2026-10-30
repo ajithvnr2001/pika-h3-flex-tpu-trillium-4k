@@ -1,0 +1,1 @@
+ZONE=europe-west4-a MODE=spot

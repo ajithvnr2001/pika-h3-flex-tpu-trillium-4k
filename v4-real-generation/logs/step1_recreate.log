@@ -1,0 +1,50 @@
+Fri Oct 30 12:22:01 UTC 2026
+TPU pika-v4-tpu is PREEMPTED (Spot preemption?). Deleting and recreating.
+Delete request issued for: [pika-v4-tpu]
+Waiting for operation [projects/genai25th01/locations/europe-west4-a/operations/operation-1793362926630-65f0dd831f7b6-456f3a77-275cd4be] to complete...
+..................................................................................................................................................................................................................................................................................................................................done.
+Deleted tpu [pika-v4-tpu].
+Creating Spot TPU pika-v4-tpu (v6e-4) in europe-west4-a ...
+Create request issued for: [pika-v4-tpu]
+Waiting for operation [projects/genai25th01/locations/europe-west4-a/operations/operation-1793362994434-65f0ddc3c92ca-016454ac-9e9350a9] to complete...
+..............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................done.
+Created tpu [pika-v4-tpu].
+Propagating SSH public key to all TPU workers...
+..................................................................................done.
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Warning: Permanently added 'tpu.8180613305217683896-0-bod6p5' (ED25519) to the list of known hosts.
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+[12:27:31] 1/4 RAM disk
+[12:27:31] 2/4 System packages (ffmpeg)
+[12:28:10] 3/4 Python 3.12 venv with torch/torch_xla 2.9 and the pinned Pika stack
+ Downloaded cpython-3.12.16-linux-x86_64-gnu (download)
+Downloading torch (175.8MiB)
+ Downloaded setuptools
+ Downloaded torchvision
+ Downloaded networkx
+ Downloaded pillow
+ Downloaded sympy
+ Downloaded numpy
+ Downloaded torch
+ Downloaded pygments
+ Downloaded grpcio
+ Downloaded torch-xla
+ Downloaded libtpu
+ Downloaded tokenizers
+ Downloaded hf-xet
+ Downloaded pillow
+ Downloaded transformers
+ Downloaded numpy
+ Downloaded av
+torch 2.9.0+cpu | torch_xla 2.9.0 | diffusers 0.42.0.dev0 | transformers 5.15.0
+[12:28:33] 4/4 Model weights (only the t2va/fl2va parts, ~147 GB) into /dev/shm/pika/model
+[32m✓ Downloaded[0m
+Downloaded 146 GB in 35 s
+[12:29:08] Bootstrap done
+STEP 1 done: pika-v4-tpu is ready.
+EXIT=0
+Fri Oct 30 12:29:08 UTC 2026

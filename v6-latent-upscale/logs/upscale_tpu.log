@@ -1,0 +1,56 @@
+WARNING:torch_xla.backends:Setting mat mul precision multiple times is not recommended. If you need to do so, please empirically verify that the precision setting is behaving as expected.
+Loading weights:   0%|          | 0/1058 [00:00<?, ?it/s]Loading weights:  98%|█████████▊| 1036/1058 [00:00<00:00, 10335.98it/s]Loading weights: 100%|██████████| 1058/1058 [00:00<00:00, 10374.46it/s]
+/root/pika-venv/lib/python3.12/site-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 58.37it/s]
+[ERROR] `min_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[ERROR] `max_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 7/7 [00:00<00:00, 153.89it/s]
+[22:27:55] TPU devices: ['xla:0', 'xla:1', 'xla:2', 'xla:3']
+[22:28:04] Transformer weights moved to TPU in 9.4s; blocks per chip: xla:0=0-12, xla:1=13-25, xla:2=26-38, xla:3=39-49
+[22:28:06] Latent upscaler loaded on xla:1 in 1.7s
+[22:28:06] Refine starts at timestep 500: video sigma 0.9231, audio sigma 0.7500, 4 model evaluations
+[22:28:06] [rajasthan] stage 1: 480p generation
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/6 [00:00<?, ?it/s][22:28:42]   denoise step 1: transformer forward 30.84s
+ 17%|█▋        | 1/6 [00:30<02:34, 30.86s/it][22:28:47]   denoise step 2: transformer forward 4.84s
+ 33%|███▎      | 2/6 [00:35<01:02, 15.56s/it][22:28:52]   denoise step 3: transformer forward 4.86s
+ 50%|█████     | 3/6 [00:40<00:32, 10.69s/it][22:28:56]   denoise step 4: transformer forward 4.80s
+ 67%|██████▋   | 4/6 [00:45<00:16,  8.38s/it][22:29:01]   denoise step 5: transformer forward 4.82s
+ 83%|████████▎ | 5/6 [00:50<00:07,  7.10s/it][22:29:06]   denoise step 6: transformer forward 4.80s
+100%|██████████| 6/6 [00:55<00:00,  6.34s/it]100%|██████████| 6/6 [00:55<00:00,  9.19s/it]
+Encoding video chunks:   0%|          | 0/1 [00:00<?, ?it/s]Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  2.13it/s]Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  2.13it/s]
+[22:31:20] [rajasthan] latent upscaled (1, 24, 37, 30, 52) -> (1, 24, 37, 60, 104) in [59.39, 9.0]s (input std 1.226, output std 1.188)
+Encoding video chunks:   0%|          | 0/1 [00:00<?, ?it/s]Encoding video chunks: 100%|██████████| 1/1 [00:02<00:00,  2.03s/it]Encoding video chunks: 100%|██████████| 1/1 [00:02<00:00,  2.03s/it]
+[22:32:25] [rajasthan] variant A (no refine) decoded (1, 3, 124, 960, 1664) in 62.37s
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/4 [00:00<?, ?it/s][22:33:39]   denoise step 1: transformer forward 72.42s
+ 25%|██▌       | 1/4 [01:12<03:37, 72.50s/it][22:34:12]   denoise step 2: transformer forward 32.24s
+ 50%|█████     | 2/4 [01:44<01:37, 48.87s/it][22:34:44]   denoise step 3: transformer forward 32.30s
+ 75%|███████▌  | 3/4 [02:17<00:41, 41.34s/it][22:35:16]   denoise step 4: transformer forward 32.19s
+100%|██████████| 4/4 [02:49<00:00, 37.76s/it]100%|██████████| 4/4 [02:49<00:00, 42.37s/it]
+Encoding video chunks:   0%|          | 0/1 [00:00<?, ?it/s]Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.02it/s]Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.02it/s]
+[22:36:24] [rajasthan] variant B (refine) 1664x960 in 237.43s, steps [72.42, 32.241, 32.297, 32.186]
+[22:36:24] [rajasthan] RESULT {"name": "rajasthan", "convention": "comfy", "seed": 42, "scale": 2.0, "refine_from": 500, "base": "832x480", "upscaled": "1664x960", "stage1_s": 124.03, "stage1_steps_s": [30.845, 4.842, 4.864, 4.801, 4.82, 4.803], "latent_shape": [1, 24, 37, 30, 52], "upscaler_s": [59.39, 9.0], "upscaled_latent_shape": [1, 24, 37, 60, 104], "decode_up2x_s": 62.37, "refine_total_s": 237.43, "refine_steps_s": [72.42, 32.241, 32.297, 32.186], "refine_vae_s": 62.24}
+[22:36:24] [himalaya] stage 1: 480p generation
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/6 [00:00<?, ?it/s][22:36:58]   denoise step 1: transformer forward 31.81s
+ 17%|█▋        | 1/6 [00:31<02:39, 31.87s/it][22:37:03]   denoise step 2: transformer forward 4.92s
+ 33%|███▎      | 2/6 [00:36<01:04, 16.04s/it][22:37:08]   denoise step 3: transformer forward 4.75s
+ 50%|█████     | 3/6 [00:41<00:32, 10.91s/it][22:37:12]   denoise step 4: transformer forward 4.89s
+ 67%|██████▋   | 4/6 [00:46<00:17,  8.54s/it][22:37:17]   denoise step 5: transformer forward 4.67s
+ 83%|████████▎ | 5/6 [00:51<00:07,  7.16s/it][22:37:22]   denoise step 6: transformer forward 4.66s
+100%|██████████| 6/6 [00:55<00:00,  6.31s/it]100%|██████████| 6/6 [00:55<00:00,  9.32s/it]
+Encoding video chunks:   0%|          | 0/1 [00:00<?, ?it/s]Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  2.17it/s]Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  2.17it/s]
+[22:38:00] [himalaya] latent upscaled (1, 24, 37, 30, 52) -> (1, 24, 37, 60, 104) in [9.7, 9.0]s (input std 1.123, output std 1.027)
+Encoding video chunks:   0%|          | 0/1 [00:00<?, ?it/s]Encoding video chunks: 100%|██████████| 1/1 [00:02<00:00,  2.07s/it]Encoding video chunks: 100%|██████████| 1/1 [00:02<00:00,  2.07s/it]
+[22:39:05] [himalaya] variant A (no refine) decoded (1, 3, 124, 960, 1664) in 62.4s
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/4 [00:00<?, ?it/s][22:40:20]   denoise step 1: transformer forward 72.64s
+ 25%|██▌       | 1/4 [01:12<03:38, 72.68s/it][22:40:52]   denoise step 2: transformer forward 32.42s
+ 50%|█████     | 2/4 [01:45<01:38, 49.05s/it][22:41:25]   denoise step 3: transformer forward 32.46s
+ 75%|███████▌  | 3/4 [02:17<00:41, 41.51s/it][22:41:57]   denoise step 4: transformer forward 32.50s
+100%|██████████| 4/4 [02:50<00:00, 37.99s/it]100%|██████████| 4/4 [02:50<00:00, 42.58s/it]
+Encoding video chunks:   0%|          | 0/1 [00:00<?, ?it/s]Encoding video chunks: 100%|██████████| 1/1 [00:01<00:00,  1.08s/it]Encoding video chunks: 100%|██████████| 1/1 [00:01<00:00,  1.08s/it]
+[22:43:06] [himalaya] variant B (refine) 1664x960 in 239.01s, steps [72.64, 32.423, 32.464, 32.498]
+[22:43:06] [himalaya] RESULT {"name": "himalaya", "convention": "comfy", "seed": 42, "scale": 2.0, "refine_from": 500, "base": "832x480", "upscaled": "1664x960", "stage1_s": 76.48, "stage1_steps_s": [31.813, 4.917, 4.746, 4.892, 4.666, 4.656], "latent_shape": [1, 24, 37, 30, 52], "upscaler_s": [9.7, 9.0], "upscaled_latent_shape": [1, 24, 37, 60, 104], "decode_up2x_s": 62.4, "refine_total_s": 239.01, "refine_steps_s": [72.64, 32.423, 32.464, 32.498], "refine_vae_s": 63.7}

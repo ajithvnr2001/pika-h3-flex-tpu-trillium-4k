@@ -1,0 +1,72 @@
+20:52:43 TPU ready in europe-west4-a
+Propagating SSH public key to all TPU workers...
+..........................................................done.
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Warning: Permanently added 'tpu.8701467429609351736-0-n/kvep' (ED25519) to the list of known hosts.
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+[20:53:25] 1/4 RAM disk
+[20:53:25] 2/4 System packages (ffmpeg)
+[20:54:02] 3/4 Python 3.12 venv with torch/torch_xla 2.9 and the pinned Pika stack
+ Downloaded cpython-3.12.16-linux-x86_64-gnu (download)
+Downloading torch (175.8MiB)
+ Downloaded setuptools
+ Downloaded torchvision
+ Downloaded networkx
+ Downloaded pillow
+ Downloaded sympy
+ Downloaded numpy
+ Downloaded torch
+ Downloaded pygments
+ Downloaded grpcio
+ Downloaded torch-xla
+ Downloaded libtpu
+ Downloaded tokenizers
+ Downloaded hf-xet
+ Downloaded pillow
+ Downloaded numpy
+ Downloaded transformers
+ Downloaded av
+ Downloaded jax
+ Downloaded scipy
+ Downloaded jaxlib
+torch 2.9.0+cpu | torch_xla 2.9.0 | diffusers 0.42.0.dev0 | transformers 5.15.0
+[20:54:28] 4/4 Model weights (only the t2va/fl2va parts, ~147 GB) into /dev/shm/pika/model
+[32m✓ Downloaded[0m
+Downloaded 146 GB in 34 s
+[20:55:02] 5/5 Latent upscaler (LBH-123-AI/Minimax_h3_latent_Upscaler v1, bf16, 691 MB)
+[32m✓ Downloaded[0m
+[20:55:04] Bootstrap done
+STEP 1 done: pika-v6-tpu is ready.
+20:55:05 STEP1 OK
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+[ERROR] `min_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[ERROR] `max_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[20:55:38] TPU devices: ['xla:0', 'xla:1', 'xla:2', 'xla:3']
+[20:55:49] Transformer weights moved to TPU in 11.0s; blocks per chip: xla:0=0-12, xla:1=13-25, xla:2=26-38, xla:3=39-49
+[20:55:54] Latent upscaler loaded on xla:1 in 3.3s
+[20:55:54] Refine starts at timestep 500: video sigma 0.9231, audio sigma 0.7500, 4 model evaluations
+[20:55:54] [rajasthan] stage 1: 480p generation
+[20:59:49] [rajasthan] latent upscaled (1, 24, 37, 30, 52) -> (1, 24, 37, 60, 104) in [59.45, 9.04]s (input std 1.226, output std 6.212)
+Traceback (most recent call last):
+TypeError: 'list' object is not an iterator
+21:01:21 UPSCALE EXIT=0
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+total 996K
+-rw-r--r-- 1 root root 589K Oct 30 21:01 rajasthan_480p.mp4
+-rw-r--r-- 1 root root 404K Oct 30 21:01 rajasthan_480p_last.png
+STEP 3 done: files are in /data/pika/v6-latent-upscale/outputs
+21:01:35 SAVE EXIT=0
+21:01:35 tearing down
+Delete request issued for: [pika-v6-qr]
+Waiting for operation [projects/genai25th01/locations/europe-west4-a/operations/operation-1793394100440-65f151a4c8ede-59f5cd07-211afaa9] to complete...
+.............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................done.
+Deleted queued_resource [pika-v6-qr].
+21:05:17 ALL DONE

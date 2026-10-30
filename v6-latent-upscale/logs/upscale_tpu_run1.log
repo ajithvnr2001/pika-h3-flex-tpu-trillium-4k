@@ -1,0 +1,32 @@
+WARNING:torch_xla.backends:Setting mat mul precision multiple times is not recommended. If you need to do so, please empirically verify that the precision setting is behaving as expected.
+[ERROR] `min_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[ERROR] `max_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 7/7 [00:00<00:00, 152.24it/s]
+/root/pika-venv/lib/python3.12/site-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 60.22it/s]
+Loading weights:   0%|          | 0/1058 [00:00<?, ?it/s]Loading weights:  92%|█████████▏| 973/1058 [00:00<00:00, 9651.54it/s]Loading weights: 100%|██████████| 1058/1058 [00:00<00:00, 9738.70it/s]
+[20:55:38] TPU devices: ['xla:0', 'xla:1', 'xla:2', 'xla:3']
+[20:55:49] Transformer weights moved to TPU in 11.0s; blocks per chip: xla:0=0-12, xla:1=13-25, xla:2=26-38, xla:3=39-49
+[20:55:54] Latent upscaler loaded on xla:1 in 3.3s
+[20:55:54] Refine starts at timestep 500: video sigma 0.9231, audio sigma 0.7500, 4 model evaluations
+[20:55:54] [rajasthan] stage 1: 480p generation
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/6 [00:00<?, ?it/s][20:56:50]   denoise step 1: transformer forward 31.63s
+ 17%|█▋        | 1/6 [00:31<02:38, 31.68s/it][20:56:55]   denoise step 2: transformer forward 5.39s
+ 33%|███▎      | 2/6 [00:37<01:04, 16.25s/it][20:57:01]   denoise step 3: transformer forward 5.42s
+ 50%|█████     | 3/6 [00:42<00:33, 11.32s/it][20:57:06]   denoise step 4: transformer forward 5.40s
+ 67%|██████▋   | 4/6 [00:48<00:18,  9.01s/it][20:57:12]   denoise step 5: transformer forward 5.43s
+ 83%|████████▎ | 5/6 [00:53<00:07,  7.73s/it][20:57:17]   denoise step 6: transformer forward 5.41s
+100%|██████████| 6/6 [00:58<00:00,  6.96s/it]100%|██████████| 6/6 [00:58<00:00,  9.83s/it]
+Encoding video chunks:   0%|          | 0/1 [00:00<?, ?it/s]Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  2.22it/s]Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  2.22it/s]
+[20:59:49] [rajasthan] latent upscaled (1, 24, 37, 30, 52) -> (1, 24, 37, 60, 104) in [59.45, 9.04]s (input std 1.226, output std 6.212)
+Traceback (most recent call last):
+  File "/root/upscale_test.py", line 189, in <module>
+    main()
+  File "/root/upscale_test.py", line 158, in main
+    encode_video(frames_from_video(video), fps=24, output_path=str(args.outdir / f"{name}_up2x_norefine.mp4"),
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/utils/export_utils.py", line 359, in encode_video
+    first_chunk = next(video)
+                  ^^^^^^^^^^^
+TypeError: 'list' object is not an iterator

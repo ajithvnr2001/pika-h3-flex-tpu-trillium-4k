@@ -1,0 +1,45 @@
+{
+  "name": "himalaya",
+  "convention": "comfy",
+  "seed": 42,
+  "scale": 2.0,
+  "refine_from": 500,
+  "base": "832x480",
+  "upscaled": "1664x960",
+  "stage1_s": 76.48,
+  "stage1_steps_s": [
+    31.813,
+    4.917,
+    4.746,
+    4.892,
+    4.666,
+    4.656
+  ],
+  "latent_shape": [
+    1,
+    24,
+    37,
+    30,
+    52
+  ],
+  "upscaler_s": [
+    9.7,
+    9.0
+  ],
+  "upscaled_latent_shape": [
+    1,
+    24,
+    37,
+    60,
+    104
+  ],
+  "decode_up2x_s": 62.4,
+  "refine_total_s": 239.01,
+  "refine_steps_s": [
+    72.64,
+    32.423,
+    32.464,
+    32.498
+  ],
+  "refine_vae_s": 63.7
+}

@@ -1,0 +1,2 @@
+/root/prompt_rajasthan_5s.txt rajasthan
+/root/prompt_himalaya_5s.txt himalaya

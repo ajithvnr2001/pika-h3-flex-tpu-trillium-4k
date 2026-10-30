@@ -1,0 +1,45 @@
+{
+  "name": "rajasthan",
+  "convention": "comfy",
+  "seed": 42,
+  "scale": 2.0,
+  "refine_from": 500,
+  "base": "832x480",
+  "upscaled": "1664x960",
+  "stage1_s": 124.03,
+  "stage1_steps_s": [
+    30.845,
+    4.842,
+    4.864,
+    4.801,
+    4.82,
+    4.803
+  ],
+  "latent_shape": [
+    1,
+    24,
+    37,
+    30,
+    52
+  ],
+  "upscaler_s": [
+    59.39,
+    9.0
+  ],
+  "upscaled_latent_shape": [
+    1,
+    24,
+    37,
+    60,
+    104
+  ],
+  "decode_up2x_s": 62.37,
+  "refine_total_s": 237.43,
+  "refine_steps_s": [
+    72.42,
+    32.241,
+    32.297,
+    32.186
+  ],
+  "refine_vae_s": 62.24
+}

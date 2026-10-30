@@ -1,0 +1,43 @@
+Propagating SSH public key to all TPU workers...
+...........................................................done.
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Warning: Permanently added 'tpu.4869441737610494699-0-gnqvnn' (ED25519) to the list of known hosts.
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+[22:21:48] 1/4 RAM disk
+[22:21:48] 2/4 System packages (ffmpeg)
+[22:22:31] 3/4 Python 3.12 venv with torch/torch_xla 2.9 and the pinned Pika stack
+ Downloaded cpython-3.12.16-linux-x86_64-gnu (download)
+Downloading torch (175.8MiB)
+ Downloaded setuptools
+ Downloaded torchvision
+ Downloaded networkx
+ Downloaded pillow
+ Downloaded sympy
+ Downloaded numpy
+ Downloaded torch
+ Downloaded pygments
+ Downloaded grpcio
+ Downloaded torch-xla
+ Downloaded libtpu
+ Downloaded tokenizers
+ Downloaded hf-xet
+ Downloaded pillow
+ Downloaded numpy
+ Downloaded transformers
+ Downloaded av
+ Downloaded jax
+ Downloaded scipy
+ Downloaded jaxlib
+torch 2.9.0+cpu | torch_xla 2.9.0 | diffusers 0.42.0.dev0 | transformers 5.15.0
+[22:22:54] 4/4 Model weights (only the t2va/fl2va parts, ~147 GB) into /dev/shm/pika/model
+[32m✓ Downloaded[0m
+Downloaded 146 GB in 41 s
+[22:23:35] 5/5 Latent upscaler (LBH-123-AI/Minimax_h3_latent_Upscaler v1, bf16, 691 MB)
+[32m✓ Downloaded[0m
+[22:23:37] Bootstrap done
+STEP 1 done: pika-v6-tpu is ready.
+STEP1_EXIT=0

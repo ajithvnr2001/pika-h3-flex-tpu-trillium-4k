@@ -1,0 +1,30 @@
+20:22:10 europe-west4-a on-demand: no more capacity
+20:25:31 us-east5-b on-demand: no more capacity
+20:27:06 us-east5-a on-demand: no more capacity
+20:27:18 us-south1-a on-demand: Insufficient capacity
+20:27:29 us-west1-c on-demand: Insufficient capacity
+20:34:01 asia-northeast1-b on-demand: no more capacity
+20:34:15 asia-east1-c on-demand: Insufficient capacity
+20:34:39 asia-south1-b on-demand: no more capacity
+20:36:01 asia-southeast1-b on-demand: no more capacity
+20:36:15 southamerica-east1-c on-demand: Insufficient capacity
+20:36:28 us-central1-a on-demand: Insufficient capacity
+20:36:33 no capacity; queueing on-demand request in europe-west4-a
+Created queued_resource [pika-v6-qr].
+20:36:45 queued: WAITING_FOR_RESOURCES
+20:37:48 queued: WAITING_FOR_RESOURCES
+20:38:50 queued: WAITING_FOR_RESOURCES
+20:39:52 queued: WAITING_FOR_RESOURCES
+20:40:54 queued: WAITING_FOR_RESOURCES
+20:41:56 queued: WAITING_FOR_RESOURCES
+20:42:58 queued: WAITING_FOR_RESOURCES
+20:44:00 queued: WAITING_FOR_RESOURCES
+20:45:02 queued: WAITING_FOR_RESOURCES
+20:46:05 queued: PROVISIONING
+20:47:07 queued: PROVISIONING
+20:48:09 queued: PROVISIONING
+20:49:11 queued: PROVISIONING
+20:50:13 queued: PROVISIONING
+20:51:15 queued: PROVISIONING
+20:52:18 queued: ACTIVE
+ZONE=europe-west4-a

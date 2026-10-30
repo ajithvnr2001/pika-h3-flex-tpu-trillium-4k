@@ -173,11 +173,49 @@ The sampler, the 6-step schedule, the packed sequence and the weights are untouc
 
 ## About 4K
 
-Pika's open weights generate natively at **480p or 768p** only (model card: "Native 480p / 768p · Up to 4K via
-Pika API"). Pika's 1080p/2K/4K upsampler is the hosted, paid
-[draft-to-video API](https://dev.pika.art/models/pika/pika-h3-flex/draft-to-video), which is not in the open
-release. The earlier folders made "4K" with an ffmpeg Lanczos resize, and so does `extra_join_and_4k.sh`. That gives
-a 3840x2160 file but no new detail. Real 4K needs Pika's API or an AI upscaler such as Real-ESRGAN.
+Checked end to end against the HF repo file list, the model card and Pika's GitHub code (`Pika-Labs/Pika-H3-Flex`):
+
+- The open release contains **no upsampler weights**. It has only the transformer, text encoder, VAEs and the LoRA
+  adapters (plus ComfyUI copies of the adapters in `comfy/loras/`).
+- The model card says "Native 480p / 768p · Up to 4K via Pika API". Pika's own CLI allows only
+  `--resolution 480p|768p` (`src/pika_h3/cli.py`, line 17).
+- `src/pika_h3/core/buckets.py` defines `p1080`, `p1440` and `p2160` frame sizes, but these are geometry rules, not a
+  model, and Pika does not validate or expose generation at those sizes. Generating natively at 4K would mean about
+  302,000 tokens instead of 14,430 (21x), roughly 440x the attention cost and about 1.5 TB for a single attention
+  head's scores. The model was not trained at that size either.
+- Pika's real 1080p/2K/4K is the paid hosted
+  [draft-to-video API](https://dev.pika.art/models/pika/pika-h3-flex/draft-to-video)
+  (`POST https://api.dev.pika.art/v1/media/pika/pika-h3-flex/draft-to-video`). It accepts any external
+  480p/768p video by URL (`"video": "<url>", "resolution": "4k"`), runs only the upscale stage, keeps frames,
+  frame rate and audio, and is billed per output second. So the videos generated here can be upscaled by it. That
+  needs a `PIKA_API_KEY` with balance and is not yet scripted.
+
+`commands/extra_join_and_4k.sh` makes 3840x2160 with an ffmpeg Lanczos resize + `unsharp`. That only adds pixels:
+about 95% of them are interpolated, the sharpen filter exaggerates compression artifacts, and 832x480 (1.733:1) is
+stretched about 2.6% horizontally to fit 16:9. It looks soft and noisy. Better options are generating at 768p and/or
+an AI upscaler (Real-ESRGAN / SeedVR2), or Pika's API for Pika's own result.
+
+## What runs on the TPU and what runs on the CPU
+
+Measured on the final `rajasthan_5s` run (360 s). The CPU here is the TPU VM's own host CPU; this machine only runs
+`gcloud`, copies files and does the optional ffmpeg join/resize.
+
+| Step | Runs on | Time |
+| --- | --- | ---: |
+| Transformer, 6 denoising steps | TPU, 4 chips | 84 s + ~200 s one-time compile |
+| Video VAE decode | TPU, chip 3 | 62 s |
+| Text encoder (Qwen3-VL, 67 GB, too big for one 32 GB chip) | TPU VM host CPU | 4.3 s |
+| Audio VAE decode | TPU VM host CPU | 1.7 s |
+| Weight loading from RAM disk, MP4 encode | TPU VM host CPU | ~4 s |
+
+About 97% of the time is on the TPU. A second video on the same VM with the same prompt length should reuse the
+compile cache. That has not been measured yet.
+
+## Session time (2026-10-30)
+
+About 3.5 hours from takeover (10:41 UTC) to the push. Roughly 1 h 45 min of that went to 3 Spot preemptions and
+searching 16 zones for capacity (no zone had on-demand v6e-4 capacity). With the scripts as they are now, one video
+takes about 7 min (step 1) + 6 min (step 2) on a fresh Spot TPU.
 
 ## About torch_tpu and sglang-torchtpu
 

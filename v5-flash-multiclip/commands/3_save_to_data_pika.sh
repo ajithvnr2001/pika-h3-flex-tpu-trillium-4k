@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# STEP 3: copy every generated MP4 + its timing JSON from the TPU into /data/pika/v4-real-generation/outputs,
+# STEP 3: copy every generated MP4 + its timing JSON from the TPU into $LOCAL_OUT (default: this folder's outputs/),
 # and save the last frame of each clip (input for an extension run).
 set -euo pipefail
 . "$(dirname "$0")/common.sh"

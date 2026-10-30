@@ -8,7 +8,8 @@
 #   commands/2_generate_video.sh "integrated_multimodal_description: A red kite flying over a beach ..." kite 5
 #   commands/2_generate_video.sh prompts/prompt_extend.txt kerala_ext 5 outputs/kerala_5s_last.png   # continue a clip
 #
-# Takes ~6 min for a 5 s clip at 480p (measured 360 s; ~3.5 min of that is one-time XLA compilation).
+# v5 timing (480p, 5 s): ~142 s on a fresh VM (one process per call, so every call pays the compile).
+# For several clips use 2_generate_batch.sh: later clips take 51-77 s.
 set -euo pipefail
 . "$(dirname "$0")/common.sh"
 PROMPT="${1:?prompt text or prompt file}"; NAME="${2:?output name}"; DUR="${3:-5}"; IMG="${4:-}"

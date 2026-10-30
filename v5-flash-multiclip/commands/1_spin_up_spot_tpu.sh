@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# STEP 1: create a Spot TPU v6e-4, copy the scripts, install everything and download the model.
+# STEP 1: create a TPU v6e-4 (Spot by default, SPOT=0 for on-demand), copy the scripts, install everything, download the model.
 # Needs: gcloud logged in, HF_TOKEN exported locally.   Takes ~6-8 min (create ~1-5 min, install ~3 min, download ~1 min).
 set -euo pipefail
 . "$(dirname "$0")/common.sh"

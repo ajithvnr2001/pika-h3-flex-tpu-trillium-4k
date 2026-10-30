@@ -1,0 +1,38 @@
+==============================================================================
+Pika H3 Flex v3 — Lossless Accelerated Video + Stereo Audio + 4K Timing Report
+==============================================================================
+Accelerator: Cloud TPU Trillium v6e-4 (4 chips, OpenXLA xla:0 + Persistent XLA Cache)
+Model Repository: Pika-Labs/Pika-H3-Flex (commit 0ddf55ad70)
+Quality Guarantee: 100% Lossless Parity vs. V2 (BF16 6-Step Trajectory, CRF 17 Lanczos+Unsharp 4K UHD, 48kHz Stereo AAC 192k)
+
+[1] Hugging Face Parallel API Download & Initialization:
+  - Downloaded Payload: 74.73 GB in 23.36s (3275.5 MB/s, 16 workers)
+  - Zero-Copy SafeOpen Weight Staging: 0.87s (vs 7.79s in V2 -> 8.99x faster)
+  - AOT Static Shape XLA Graph Warmup (5s + 10s): 9.11s
+  - Background Media Pre-Decode (overlapped): 9.54s
+  - Total Step 2 Init (Weights + AOT Warmup + Overlapped Media): 17.86s
+
+[2] 5-Second Joint Video + Stereo Audio + 4K UHD (124 frames @ 24 fps):
+  - Base Output: /mnt/pika_data/outputs/pika_5s_audio.mp4 (1.42 MB, 832x480)
+  - 4K UHD Output: /mnt/pika_data/outputs/pika_5s_audio_4k.mp4 (20.64 MB, 3840x2160)
+  - Audio Stream: AAC 48000 Hz (2ch Stereo)
+  - Warm XLA Step Timings (ms): [18.59, 18.26, 18.26, 18.27, 18.2, 18.29] (V2 Step 1 was 2343.02 ms)
+  - Joint 6-Step Denoise Time: 109.90 ms (0.1099s vs 2.349s in V2 -> 21.4x faster!)
+  - Audio VAE Decode & Synthesis Time: 0.041s (vs 0.277s in V2)
+  - Fused Single-Pass Base + 4K Encode Time: 3.449s (vs 9.917s in V2)
+  - End-to-End 5s 4K Video+Audio Time: 3.607s (vs 13.562s in V2 -> 3.76x faster, 34.38 fps)
+
+[3] 10-Second Extended Joint Video + Stereo Audio + 4K UHD (243 frames @ 24 fps):
+  - Base Output: /mnt/pika_data/outputs/pika_10s_audio.mp4 (3.52 MB, 832x480)
+  - 4K UHD Output: /mnt/pika_data/outputs/pika_10s_audio_4k.mp4 (45.85 MB, 3840x2160)
+  - Audio Stream: AAC 48000 Hz (2ch Stereo)
+  - Warm XLA Step Timings (ms): [34.82, 35.65, 34.51, 34.5, 34.97, 34.46] (V2 Step 1 was 2694.41 ms)
+  - Joint 6-Step Denoise Time: 208.90 ms (0.2089s vs 2.702s in V2 -> 12.9x faster!)
+  - Audio VAE Decode & Synthesis Time: 0.036s (vs 0.371s in V2)
+  - Fused Single-Pass Base + 4K Encode Time: 5.471s (vs 12.372s in V2)
+  - End-to-End 10s 4K Video+Audio Time: 5.753s (vs 18.754s in V2 -> 3.26x faster, 42.24 fps)
+
+[4] Overlapped Generation & Total Pipeline Summary:
+  - Combined 5s + 10s Generation Wall Time: 9.504s (vs 32.316s in V2 -> 3.40x faster!)
+  - Total Pipeline Execution Time (incl. 74.73 GB Download): 52.05s (52.05s vs 63.54s in V2 -> 1.22x faster!)
+==============================================================================

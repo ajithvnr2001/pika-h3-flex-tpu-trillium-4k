@@ -176,10 +176,14 @@ def run():
 
         print("\n[2/3] Executing V3 bootstrap, fast download & Lossless Accelerated Video+Audio+4K generation...", flush=True)
         hf_token = os.environ.get("HF_TOKEN", "")
+        pika_prompt = os.environ.get("PIKA_PROMPT", "")
+        env_prefix = f"HF_TOKEN={hf_token}"
+        if pika_prompt:
+            env_prefix += f" PIKA_PROMPT={subprocess.list2cmdline([pika_prompt])}"
         ssh_cmd = [
             "gcloud", "compute", "tpus", "tpu-vm", "ssh", NODE_NAME,
             f"--zone={ZONE}", f"--project={PROJECT_ID}",
-            f"--command=HF_TOKEN={hf_token} bash ~/bootstrap_v3_pipeline_tpu.sh"
+            f"--command={env_prefix} bash ~/bootstrap_v3_pipeline_tpu.sh"
         ]
         subprocess.run(ssh_cmd, check=True)
 

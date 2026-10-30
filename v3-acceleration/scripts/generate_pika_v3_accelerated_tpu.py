@@ -36,6 +36,13 @@ HF_TOKEN = os.environ.get("HF_TOKEN", "")
 HF_REPO = "Pika-Labs/Pika-H3-Flex"
 HF_REVISION = "0ddf55ad7067ca1e76812253bd7b4600df87f759"
 
+DEFAULT_PROMPT = (
+    "A fast table-tennis rally in a drained concrete swimming pool, "
+    "shot on 35mm film with natural film grain, realistic motion at 24fps "
+    "with crisp synchronized stereo ping-pong ball hits and concrete pool echo."
+)
+PROMPT = os.environ.get("PIKA_PROMPT", DEFAULT_PROMPT)
+
 DATA_DIR = Path("/mnt/pika_data")
 MODEL_DIR = DATA_DIR / "Pika-H3-Flex"
 XLA_CACHE_DIR = DATA_DIR / "xla_cache"
@@ -450,6 +457,7 @@ def run_tpu_denoise_and_audio_stage(
         f"\n--- [TPU Stage] {duration_seconds}s Video + Stereo Audio ({expected_frames} frames @ {fps}fps) ---",
         flush=True,
     )
+    print(f"Prompt: \"{PROMPT}\"", flush=True)
     print(
         f"Executing warm {steps}-step joint Video+Audio diffusion trajectory "
         f"(video_tokens={seq_tokens}, audio_tokens={audio_tokens}, dim={hidden_dim}, BF16)...",

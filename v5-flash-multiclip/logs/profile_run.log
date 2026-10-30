@@ -1,0 +1,519 @@
+17:10:58 queued resource: PROVISIONING
+17:12:00 queued resource: PROVISIONING
+17:13:02 queued resource: PROVISIONING
+17:14:04 queued resource: PROVISIONING
+17:15:07 queued resource: PROVISIONING
+17:16:09 queued resource: PROVISIONING
+17:17:11 queued resource: PROVISIONING
+17:18:13 queued resource: PROVISIONING
+17:19:15 queued resource: PROVISIONING
+17:20:17 queued resource: PROVISIONING
+17:21:19 queued resource: ACTIVE
+Propagating SSH public key to all TPU workers...
+..........................................................done.
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Warning: Permanently added 'tpu.6949731281708948293-0-uamhub' (ED25519) to the list of known hosts.
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+[17:22:00] 1/4 RAM disk
+[17:22:00] 2/4 System packages (ffmpeg)
+[17:22:39] 3/4 Python 3.12 venv with torch/torch_xla 2.9 and the pinned Pika stack
+ Downloaded cpython-3.12.16-linux-x86_64-gnu (download)
+Downloading torch (175.8MiB)
+ Downloaded setuptools
+ Downloaded networkx
+ Downloaded pillow
+ Downloaded sympy
+ Downloaded torchvision
+ Downloaded numpy
+ Downloaded torch
+ Downloaded pygments
+ Downloaded grpcio
+ Downloaded torch-xla
+ Downloaded libtpu
+ Downloaded tokenizers
+ Downloaded hf-xet
+ Downloaded pillow
+ Downloaded numpy
+ Downloaded transformers
+ Downloaded av
+torch 2.9.0+cpu | torch_xla 2.9.0 | diffusers 0.42.0.dev0 | transformers 5.15.0
+[17:23:02] 4/4 Model weights (only the t2va/fl2va parts, ~147 GB) into /dev/shm/pika/model
+[32m✓ Downloaded[0m
+Downloaded 146 GB in 39 s
+[17:23:42] Bootstrap done
+STEP 1 done: pika-v4-tpu is ready.
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+ + opt-einsum==3.4.0
+ + scipy==1.18.1
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+WARNING:torch_xla.backends:Setting mat mul precision multiple times is not recommended. If you need to do so, please empirically verify that the precision setting is behaving as expected.
+/root/pika-venv/lib/python3.12/site-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+[17:24:18] TPU devices: ['xla:0', 'xla:1', 'xla:2', 'xla:3']
+[17:24:27] Transformer weights moved to TPU in 8.4s; blocks per chip: xla:0=0-12, xla:1=13-25, xla:2=26-38, xla:3=39-49
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+Error in block: (denoiser, PikaH3FlexLoopDenoiser)
+Error details: 
+Traceback:
+Traceback (most recent call last):
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1588, in loop_step
+    components, state = block(components, state, **kwargs)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/pika_h3_flex/denoise.py", line 124, in __call__
+    block_state.noise_pred, block_state.audio_noise_pred = transformer(
+                                                           ^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1881, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1829, in inner
+    result = forward_call(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 150, in forward
+    out = original(*_move(args, self.head), **_move(kwargs, self.head))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/utils/peft_utils.py", line 323, in wrapper
+    result = forward_fn(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/models/transformers/transformer_minimax_h3.py", line 655, in forward
+    hidden_states = block(hidden_states, temb, adaln_indices, rotary_emb)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1881, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1808, in inner
+    args_kwargs_result = hook(self, args, kwargs)  # type: ignore[misc]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/profile_step.py", line 77, in blk_hook
+    raise Captured()
+Captured
+
+
+Error in block: (denoise, PikaH3FlexDenoiseStep)
+Error details: 
+Traceback:
+Traceback (most recent call last):
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1218, in __call__
+    pipeline, state = block(pipeline, state)
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/pika_h3_flex/denoise.py", line 286, in __call__
+    components, block_state = self.loop_step(components, block_state, i=i, t=t)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1588, in loop_step
+    components, state = block(components, state, **kwargs)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/pika_h3_flex/denoise.py", line 124, in __call__
+    block_state.noise_pred, block_state.audio_noise_pred = transformer(
+                                                           ^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1881, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1829, in inner
+    result = forward_call(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 150, in forward
+    out = original(*_move(args, self.head), **_move(kwargs, self.head))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/utils/peft_utils.py", line 323, in wrapper
+    result = forward_fn(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/models/transformers/transformer_minimax_h3.py", line 655, in forward
+    hidden_states = block(hidden_states, temb, adaln_indices, rotary_emb)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1881, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1808, in inner
+    args_kwargs_result = hook(self, args, kwargs)  # type: ignore[misc]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/profile_step.py", line 77, in blk_hook
+    raise Captured()
+Captured
+
+
+Error in block: PikaH3FlexCoreDenoiseStep
+Error details: 
+Traceback:
+Traceback (most recent call last):
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 858, in __call__
+    return block(pipeline, state)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1218, in __call__
+    pipeline, state = block(pipeline, state)
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/pika_h3_flex/denoise.py", line 286, in __call__
+    components, block_state = self.loop_step(components, block_state, i=i, t=t)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1588, in loop_step
+    components, state = block(components, state, **kwargs)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/pika_h3_flex/denoise.py", line 124, in __call__
+    block_state.noise_pred, block_state.audio_noise_pred = transformer(
+                                                           ^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1881, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1829, in inner
+    result = forward_call(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 150, in forward
+    out = original(*_move(args, self.head), **_move(kwargs, self.head))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/utils/peft_utils.py", line 323, in wrapper
+    result = forward_fn(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/models/transformers/transformer_minimax_h3.py", line 655, in forward
+    hidden_states = block(hidden_states, temb, adaln_indices, rotary_emb)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1881, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1808, in inner
+    args_kwargs_result = hook(self, args, kwargs)  # type: ignore[misc]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/profile_step.py", line 77, in blk_hook
+    raise Captured()
+Captured
+
+
+Error in block: (denoise, PikaH3FlexAutoDenoiseStep)
+Error details: 
+Traceback:
+Traceback (most recent call last):
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1218, in __call__
+    pipeline, state = block(pipeline, state)
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 858, in __call__
+    return block(pipeline, state)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1218, in __call__
+    pipeline, state = block(pipeline, state)
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/pika_h3_flex/denoise.py", line 286, in __call__
+    components, block_state = self.loop_step(components, block_state, i=i, t=t)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1588, in loop_step
+    components, state = block(components, state, **kwargs)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/pika_h3_flex/denoise.py", line 124, in __call__
+    block_state.noise_pred, block_state.audio_noise_pred = transformer(
+                                                           ^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1881, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1829, in inner
+    result = forward_call(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 150, in forward
+    out = original(*_move(args, self.head), **_move(kwargs, self.head))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/utils/peft_utils.py", line 323, in wrapper
+    result = forward_fn(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/models/transformers/transformer_minimax_h3.py", line 655, in forward
+    hidden_states = block(hidden_states, temb, adaln_indices, rotary_emb)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1881, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1808, in inner
+    args_kwargs_result = hook(self, args, kwargs)  # type: ignore[misc]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/profile_step.py", line 77, in blk_hook
+    raise Captured()
+Captured
+
+Error in block: (PikaH3FlexBlocks):
+
+[17:24:31] Captured inputs: seq_len=15004, video rows=14430, audio rows=414, text rows=160
+Traceback (most recent call last):
+  File "/root/profile_step.py", line 193, in <module>
+    main()
+  File "/root/profile_step.py", line 100, in main
+    t = time.monotonic(); wrapped_forward(**kw); ts.append(round(time.monotonic() - t, 2))
+                          ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 150, in forward
+    out = original(*_move(args, self.head), **_move(kwargs, self.head))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/utils/peft_utils.py", line 323, in wrapper
+    result = forward_fn(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/models/transformers/transformer_minimax_h3.py", line 655, in forward
+    hidden_states = block(hidden_states, temb, adaln_indices, rotary_emb)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1881, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1842, in inner
+    hook_result = hook(self, args, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 133, in <lambda>
+    block.register_forward_hook(lambda m, a, o: (torch_xla.sync(), o)[1])
+                                                 ^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch_xla/torch_xla.py", line 87, in sync
+    torch_xla._XLAC._xla_step_marker(
+ValueError: XLA:TPU compile permanent error. Ran out of memory in memory space hbm. Used 47.31G of 31.25G hbm. Exceeded hbm capacity by 16.06G.
+
+Total hbm usage >= 47.56G:
+    reserved        260.00M 
+    program          47.31G 
+    arguments            0B 
+
+Output size 0B; shares 0B with arguments.
+
+Program hbm requirement 47.31G:
+    HLO temp         47.31G (99.3% utilization: Unpadded (46.96G) Padded (47.29G), 0.0% fragmentation (20.94M))
+
+  Largest program allocations in hbm:
+
+  1. Size: 3.38G
+     Shape: f32[4,15004,15004]{1,2,0:T(8,128)}
+     Unpadded size: 3.35G
+     Extra memory due to padding: 23.82M (1.0x expansion)
+     XLA label: divide_select_fusion.1 = fusion(gte.remat.110, copy-done.229, gte.remat.109, copy-done.307), kind=kLoop, calls=fused_computation.49
+     Allocation type: HLO temp
+     ==========================
+
+  2. Size: 3.38G
+     Shape: f32[4,15004,15004]{1,2,0:T(8,128)}
+     Unpadded size: 3.35G
+     Extra memory due to padding: 23.82M (1.0x expansion)
+     XLA label: fusion.413.remat = fusion(copy.1147, maximum_bitcast_fusion.1.remat_uncompressed, maximum_bitcast_fusion.remat_uncompressed), kind=kOutput, calls=fused_computation.675.clone
+     Allocation type: HLO temp
+     ==========================
+
+  3. Size: 3.38G
+     Shape: f32[4,15004,15004]{1,2,0:T(8,128)}
+     Unpadded size: 3.35G
+     Extra memory due to padding: 23.82M (1.0x expansion)
+     XLA label: fusion.412.remat4 = fusion(copy.1147, maximum_bitcast_fusion.1.remat_uncompressed, maximum_bitcast_fusion.remat_uncompressed), kind=kOutput, calls=fused_computation.674.clone.clone.clone.clone
+     Allocation type: HLO temp
+     ==========================
+
+  4. Size: 3.38G
+     Shape: f32[4,15004,15004]{1,2,0:T(8,128)}
+     Unpadded size: 3.35G
+     Extra memory due to padding: 23.82M (1.0x expansion)
+     XLA label: fusion.411.remat4 = fusion(copy.1147, maximum_bitcast_fusion.1.remat_uncompressed, maximum_bitcast_fusion.remat_uncompressed), kind=kOutput, calls=fused_computation.673.clone.clone.clone.clone
+     Allocation type: HLO temp
+     ==========================
+
+  5. Size: 3.38G
+     Shape: f32[4,15004,15004]{1,2,0:T(8,128)}
+     Unpadded size: 3.35G
+     Extra memory due to padding: 23.82M (1.0x expansion)
+     XLA label: fusion.410.remat4 = fusion(copy.1147, maximum_bitcast_fusion.1.remat_uncompressed, maximum_bitcast_fusion.remat_uncompressed), kind=kOutput, calls=fused_computation.672.clone.clone.clone.clone
+     Allocation type: HLO temp
+     ==========================
+
+  6. Size: 3.38G
+     Shape: f32[4,15004,15004]{1,2,0:T(8,128)}
+     Unpadded size: 3.35G
+     Extra memory due to padding: 23.82M (1.0x expansion)
+     XLA label: fusion.409.remat4 = fusion(copy.1147, maximum_bitcast_fusion.1.remat_uncompressed, maximum_bitcast_fusion.remat_uncompressed), kind=kOutput, calls=fused_computation.671.clone.clone.clone.clone
+     Allocation type: HLO temp
+     ==========================
+
+  7. Size: 3.38G
+     Shape: f32[4,15004,15004]{1,2,0:T(8,128)}
+     Unpadded size: 3.35G
+     Extra memory due to padding: 23.82M (1.0x expansion)
+     XLA label: fusion.408.remat4 = fusion(copy.1147, maximum_bitcast_fusion.1.remat_uncompressed, maximum_bitcast_fusion.remat_uncompressed), kind=kOutput, calls=fused_computation.670.clone.clone.clone.clone
+     Allocation type: HLO temp
+     ==========================
+
+  8. Size: 3.38G
+     Shape: f32[4,15004,15004]{1,2,0:T(8,128)}
+     Unpadded size: 3.35G
+     Extra memory due to padding: 23.82M (1.0x expansion)
+     XLA label: fusion.407.remat4 = fusion(copy.1147, maximum_bitcast_fusion.1.remat_uncompressed, maximum_bitcast_fusion.remat_uncompressed), kind=kOutput, calls=fused_computation.669.clone.clone.clone.clone
+     Allocation type: HLO temp
+     ==========================
+
+  9. Size: 3.38G
+     Shape: f32[4,15004,15004]{1,2,0:T(8,128)}
+     Unpadded size: 3.35G
+     Extra memory due to padding: 23.82M (1.0x expansion)
+     XLA label: fusion.406.remat4 = fusion(copy.1147, maximum_bitcast_fusion.1.remat_uncompressed, maximum_bitcast_fusion.remat_uncompressed), kind=kOutput, calls=fused_computation.668.clone.clone.clone.clone
+     Allocation type: HLO temp
+     ==========================
+
+  10. Size: 3.38G
+     Shape: f32[4,15004,15004]{1,2,0:T(8,128)}
+     Unpadded size: 3.35G
+     Extra memory due to padding: 23.82M (1.0x expansion)
+     XLA label: fusion.405.remat4 = fusion(copy.1147, maximum_bitcast_fusion.1.remat_uncompressed, maximum_bitcast_fusion.remat_uncompressed), kind=kOutput, calls=fused_computation.667.clone.clone.clone.clone
+     Allocation type: HLO temp
+     ==========================
+
+  11. Size: 3.38G
+     Shape: f32[4,15004,15004]{1,2,0:T(8,128)}
+     Unpadded size: 3.35G
+     Extra memory due to padding: 23.82M (1.0x expansion)
+     XLA label: fusion.404.remat4 = fusion(copy.1147, maximum_bitcast_fusion.1.remat_uncompressed, maximum_bitcast_fusion.remat_uncompressed), kind=kOutput, calls=fused_computation.666.clone.clone.clone.clone
+     Allocation type: HLO temp
+     ==========================
+
+  12. Size: 3.38G
+     Shape: f32[4,15004,15004]{1,2,0:T(8,128)}
+     Unpadded size: 3.35G
+     Extra memory due to padding: 23.82M (1.0x expansion)
+     XLA label: fusion.403.remat4 = fusion(copy.1147, maximum_bitcast_fusion.1.remat_uncompressed, maximum_bitcast_fusion.remat_uncompressed), kind=kOutput, calls=fused_computation.665.clone.clone.clone.clone
+     Allocation type: HLO temp
+     ==========================
+
+  13. Size: 3.38G
+     Shape: f32[4,15004,15004]{1,2,0:T(8,128)}
+     Unpadded size: 3.35G
+     Extra memory due to padding: 23.82M (1.0x expansion)
+     XLA label: fusion.402.remat4 = fusion(copy.1147, maximum_bitcast_fusion.1.remat_uncompressed, maximum_bitcast_fusion.remat_uncompressed), kind=kOutput, calls=fused_computation.664.clone.clone.clone.clone
+     Allocation type: HLO temp
+     ==========================
+
+  14. Size: 3.38G
+     Shape: f32[4,15004,15004]{1,2,0:T(8,128)}
+     Unpadded size: 3.35G
+     Extra memory due to padding: 23.82M (1.0x expansion)
+     XLA label: fusion.401.remat4 = fusion(copy.1147, maximum_bitcast_fusion.1.remat_uncompressed, maximum_bitcast_fusion.remat_uncompressed), kind=kOutput, calls=fused_computation.663.clone.clone.clone.clone
+     Allocation type: HLO temp
+     ==========================
+
+  15. Size: 96B
+     Shape: (f32[4,128,15004]{1,2,0:T(8,128)}, f32[1,4,128,15004]{2,3,1,0:T(8,128)}, f32[1,4,128,15004]{2,3,1,0:T(8,128)}, f32[1,4,128,15004]{2,3,1,0:T(8,128)}, f32[1,4,128,15004]{2,3,1,0:T(8,128)}, /*index=5*/f32[1,4,128,15004]{2,3,1,0:T(8,128)}, f32[1,4,128,15004]{2,3,1,0:T(8,128)}, f32[1,4,128,15004]{2,3,1,0:T(8,128)}, f32[1,4,128,15004]{2,3,1,0:T(8,128)}, f32[1,4,128,15004]{2,3,1,0:T(8,128)}, /*index=10*/f32[1,4,128,15004]{2,3,1,0:T(8,128)}, f32[1,4,128,15004]{2,3,1,0:T(8,128)}, f32[1,4,128,15004]{2,3,1,0:T(8,128)S(1)}, f32[1,4,128,15004]{2,3,1,0:T(8,128)S(1)}, f32[1,4,128,15004]{2,3,1,0:T(8,128)S(1)}, /*index=15*/f32[4,128,15004]{1,2,0:T(8,128)}, f32[4,128,15004]{1,2,0:T(8,128)}, f32[4,128,15004]{1,2,0:T(8,128)})
+     Unpadded size: 96B
+     XLA label: fusion.84 = fusion(copy.1147, maximum_bitcast_fusion.1.remat_uncompressed), kind=kLoop, calls=fused_computation.169
+     Allocation type: HLO temp
+     ==========================
+
+  16. Size: 96B
+     Shape: (f32[4,15004,128]{2,1,0:T(8,128)}, f32[4,15004,128]{2,1,0:T(8,128)}, f32[4,15004,128]{2,1,0:T(8,128)}, f32[4,15004,128]{2,1,0:T(8,128)}, f32[4,15004,128]{2,1,0:T(8,128)S(1)}, /*index=5*/f32[4,15004,128]{2,1,0:T(8,128)S(1)}, f32[4,15004,128]{2,1,0:T(8,128)S(1)}, f32[4,15004,128]{2,1,0:T(8,128)}, f32[4,15004,128]{2,1,0:T(8,128)}, f32[4,15004,128]{2,1,0:T(8,128)}, /*index=10*/f32[4,15004,128]{2,1,0:T(8,128)}, f32[4,15004,128]{2,1,0:T(8,128)}, f32[4,15004,128]{2,1,0:T(8,128)}, f32[4,15004,128]{2,1,0:T(8,128)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)}, /*index=15*/f32[1,4,15004,128]{3,2,1,0:T(8,128)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)})
+     Unpadded size: 96B
+     XLA label: fusion.202 = fusion(copy.1147, maximum_bitcast_fusion.remat_uncompressed), kind=kLoop, calls=fused_computation.329
+     Allocation type: HLO temp
+     ==========================
+
+  17. Size: 96B
+     Shape: (f32[4,15004,128]{2,1,0:T(8,128)}, f32[4,15004,128]{2,1,0:T(8,128)}, f32[4,15004,128]{2,1,0:T(8,128)}, f32[4,15004,128]{2,1,0:T(8,128)}, f32[4,15004,128]{2,1,0:T(8,128)}, /*index=5*/f32[4,15004,128]{2,1,0:T(8,128)S(1)}, f32[4,15004,128]{2,1,0:T(8,128)S(1)}, f32[4,15004,128]{2,1,0:T(8,128)S(1)}, f32[4,15004,128]{2,1,0:T(8,128)}, f32[4,15004,128]{2,1,0:T(8,128)}, /*index=10*/f32[4,15004,128]{2,1,0:T(8,128)}, f32[4,15004,128]{2,1,0:T(8,128)}, f32[4,15004,128]{2,1,0:T(8,128)}, f32[4,15004,128]{2,1,0:T(8,128)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)}, /*index=15*/f32[1,4,15004,128]{3,2,1,0:T(8,128)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)})
+     Unpadded size: 96B
+     XLA label: fusion.148 = fusion(copy_bitcast_fusion.remat_uncompressed), kind=kLoop, calls=fused_computation.302
+     Allocation type: HLO temp
+     ==========================
+
+  18. Size: 64B
+     Shape: (f32[1,4,15004,128]{3,2,1,0:T(8,128)S(1)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)S(1)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)S(1)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)}, /*index=5*/f32[1,4,15004,128]{3,2,1,0:T(8,128)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)})
+     Unpadded size: 64B
+     XLA label: slice_convert_fusion.5 = fusion(copy_bitcast_fusion.remat_uncompressed), kind=kLoop, calls=fused_computation.237
+     Allocation type: HLO temp
+     ==========================
+
+  19. Size: 64B
+     Shape: (f32[1,4,15004,128]{3,2,1,0:T(8,128)S(1)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)S(1)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)S(1)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)}, /*index=5*/f32[1,4,15004,128]{3,2,1,0:T(8,128)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)}, f32[1,4,15004,128]{3,2,1,0:T(8,128)})
+     Unpadded size: 64B
+     XLA label: convert_multiply_fusion.1 = fusion(maximum_bitcast_fusion.remat_uncompressed, copy.1147), kind=kLoop, calls=fused_computation.171
+     Allocation type: HLO temp
+     ==========================
+
+  20. Size: 64B
+     Shape: (f32[4,128,15004]{1,2,0:T(8,128)S(1)}, f32[4,128,15004]{1,2,0:T(8,128)S(1)}, f32[4,128,15004]{1,2,0:T(8,128)S(1)}, f32[4,128,15004]{1,2,0:T(8,128)}, f32[4,128,15004]{1,2,0:T(8,128)}, /*index=5*/f32[4,128,15004]{1,2,0:T(8,128)}, f32[4,128,15004]{1,2,0:T(8,128)}, f32[4,128,15004]{1,2,0:T(8,128)}, f32[4,128,15004]{1,2,0:T(8,128)}, f32[4,128,15004]{1,2,0:T(8,128)})
+     Unpadded size: 64B
+     XLA label: fusion.92 = fusion(copy.1147, maximum_bitcast_fusion.1.remat_uncompressed), kind=kLoop, calls=fused_computation.185
+     Allocation type: HLO temp
+     ==========================
+
+
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+scp: /dev/shm/pika/outputs/profile_step.json: No such file or directory
+Retrying: SCP command error: [/usr/bin/scp] exited with return code [1].
+SCP: Attempting to connect to worker 0...
+scp: /dev/shm/pika/outputs/profile_step.json: No such file or directory
+Retrying: SCP command error: [/usr/bin/scp] exited with return code [1].
+SCP: Attempting to connect to worker 0...
+scp: /dev/shm/pika/outputs/profile_step.json: No such file or directory
+Retrying: SCP command error: [/usr/bin/scp] exited with return code [1].
+SCP: Attempting to connect to worker 0...
+scp: /dev/shm/pika/outputs/profile_step.json: No such file or directory
+Retrying: SCP command error: [/usr/bin/scp] exited with return code [1].
+SCP: Attempting to connect to worker 0...
+scp: /dev/shm/pika/outputs/profile_step.json: No such file or directory
+Retrying: SCP command error: [/usr/bin/scp] exited with return code [1].
+SCP: Attempting to connect to worker 0...
+scp: /dev/shm/pika/outputs/profile_step.json: No such file or directory
+Retrying: SCP command error: [/usr/bin/scp] exited with return code [1].
+SCP: Attempting to connect to worker 0...
+scp: /dev/shm/pika/outputs/profile_step.json: No such file or directory
+Retrying: SCP command error: [/usr/bin/scp] exited with return code [1].
+SCP: Attempting to connect to worker 0...
+scp: /dev/shm/pika/outputs/profile_step.json: No such file or directory
+Retrying: SCP command error: [/usr/bin/scp] exited with return code [1].
+SCP: Attempting to connect to worker 0...
+scp: /dev/shm/pika/outputs/profile_step.json: No such file or directory
+Retrying: SCP command error: [/usr/bin/scp] exited with return code [1].
+SCP: Attempting to connect to worker 0...
+scp: /dev/shm/pika/outputs/profile_step.json: No such file or directory
+ERROR: (gcloud.compute.tpus.tpu-vm.scp) [/usr/bin/scp] exited with return code [1].
+PROFILE_DONE

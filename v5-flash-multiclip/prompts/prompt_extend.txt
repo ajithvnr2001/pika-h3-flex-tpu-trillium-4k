@@ -1,0 +1,7 @@
+For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.
+
+integrated_multimodal_description: [Shot 1] Begin with the supplied image of a traditional wooden Kerala houseboat with a curved thatched bamboo roof on calm green backwaters at golden hour, coconut palms on both banks. Preserve the houseboat, the palms, the water and the warm light. The houseboat keeps gliding forward and the camera continues its smooth tracking shot alongside it. The sun sinks lower toward the palm line, the sky turns deeper orange, and ripples spread across the water as a gentle breeze moves the palm fronds. By the end the houseboat drifts calmly in the glowing evening light. Photorealistic, natural colors, 35mm film look.
+
+overall_soundscape: Gentle water lapping against the wooden hull, palm fronds rustling in the breeze and distant evening birdsong. No speech.
+
+non_diegetic_music: N/A

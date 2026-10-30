@@ -1,0 +1,111 @@
+{
+  "pre_transformer_s": 17.8,
+  "seq_len": 15004,
+  "timestep_shape": [
+    1
+  ],
+  "full_forward_s": [
+    204.36,
+    40.23,
+    14.55
+  ],
+  "compile_metrics": {
+    "CompileTime": [
+      7,
+      214668073885.0
+    ],
+    "ExecuteTime": [
+      54,
+      95188449318.0
+    ]
+  },
+  "per_block_wall_s": [
+    0.2887,
+    0.2631,
+    0.2631,
+    0.2632,
+    0.2625,
+    0.2635,
+    0.2619,
+    0.2636,
+    0.2625,
+    0.2637,
+    0.2619,
+    0.2636,
+    0.2619,
+    0.0896,
+    0.0374,
+    0.0399,
+    0.04,
+    0.0372,
+    0.0351,
+    0.0229,
+    0.0427,
+    0.0366,
+    0.0404,
+    0.0386,
+    0.0444,
+    0.0362,
+    3.4218,
+    0.0396,
+    0.0386,
+    0.039,
+    0.041,
+    0.0412,
+    0.042,
+    0.0426,
+    0.0402,
+    0.0401,
+    0.0357,
+    0.0318,
+    0.0436,
+    3.4077,
+    0.0402,
+    0.0203,
+    0.0181,
+    0.02,
+    0.0201,
+    0.0183,
+    0.0209,
+    0.0375,
+    0.0413,
+    0.0383
+  ],
+  "instrumented_forward_s": 14.48,
+  "block": {
+    "first_s": 0.262,
+    "trace_s": 0.0058,
+    "device_s": 0.2566
+  },
+  "block_attention": {
+    "first_s": 24.668,
+    "trace_s": 0.0036,
+    "device_s": 0.2377
+  },
+  "block_ff": {
+    "first_s": 1.524,
+    "trace_s": 0.0004,
+    "device_s": 0.0144
+  },
+  "attention_variants": {
+    "sdpa_chunk4 (current)": {
+      "first_s": 23.855,
+      "trace_s": 0.0025,
+      "device_s": 0.2216,
+      "max_abs_diff": 0.0
+    },
+    "sdpa_chunk8": {
+      "first_s": 20.97,
+      "trace_s": 0.0014,
+      "device_s": 0.2417,
+      "max_abs_diff": 0.0
+    },
+    "sdpa_chunk14": {
+      "error": "Error loading program 'SyncTensorsGraph.291': Attempting to reserve 12.95G at the bottom of memory. That was not possible. There are 11.17G free, 0B reserved, and 11.17G reservable."
+    },
+    "pallas_flash_attention": {
+      "error": "ValueError('Failed to deserialize the Mosaic module: INTERNAL: Unsupported version: expected <= 7 but got 8\\n\\nat location: loc(unknown)\\n\\nThe MLIR operation involved:\\n  \\n\"builtin.module\"() <{sym_name = \"_flash_attention_kernel\"}> ({\\n  \"stable_mosaic.func.func\"() ({\\n  ^bb0(%arg24: i32, %arg25: "
+    }
+  },
+  "ref_output_absmax": 31.75
+}

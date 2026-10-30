@@ -1,0 +1,5 @@
+# v5 test batch, one process. rajasthan appears twice to check that a repeated run (same seed) is identical.
+prompts/prompt_rajasthan_5s.txt  rajasthan_5s_v5a  5
+prompts/prompt_5s.txt            kerala_5s_v5      5
+prompts/prompt_rajasthan_5s.txt  rajasthan_5s_v5b  5
+prompts/prompt_himalaya_5s.txt   himalaya_5s_v5    5

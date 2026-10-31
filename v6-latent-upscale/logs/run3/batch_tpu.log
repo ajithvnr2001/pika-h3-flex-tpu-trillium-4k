@@ -1,0 +1,458 @@
+WARNING:torch_xla.backends:Setting mat mul precision multiple times is not recommended. If you need to do so, please empirically verify that the precision setting is behaving as expected.
+[06:22:41] 6 job(s); base 832x480, upscale 2.0x -> 1664x960
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 59.78it/s]
+/root/pika-venv/lib/python3.12/site-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+[ERROR] `min_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[ERROR] `max_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+Loading weights:   0%|          | 0/1058 [00:00<?, ?it/s]Loading weights:  96%|█████████▌| 1018/1058 [00:00<00:00, 10177.83it/s]Loading weights: 100%|██████████| 1058/1058 [00:00<00:00, 10218.47it/s]
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 7/7 [00:00<00:00, 150.77it/s]
+[06:22:44] Components + FL2VA adapter loaded in 3.4s
+[06:22:50] TPU devices: ['xla:0', 'xla:1', 'xla:2', 'xla:3']
+[06:23:00] Transformer weights moved to TPU in 10.1s; blocks per chip: xla:0=0-12, xla:1=13-25, xla:2=26-38, xla:3=39-49
+[06:23:01] video VAE decoder -> xla:3
+[06:23:01] video VAE encoder (first-frame conditioning) -> xla:2
+[06:23:01] audio VAE -> xla:2
+[06:23:03] latent upscaler -> xla:1
+[06:23:03] Job 1/6: raj_r500.mp4 t2va 5s seed=42 upscale->1664x960 refine_from=500
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/6 [00:00<?, ?it/s][06:23:39]   denoise step 1: transformer forward 30.83s
+ 17%|█▋        | 1/6 [00:30<02:34, 30.85s/it][06:23:44]   denoise step 2: transformer forward 4.57s
+ 33%|███▎      | 2/6 [00:35<01:01, 15.40s/it][06:23:49]   denoise step 3: transformer forward 4.82s
+ 50%|█████     | 3/6 [00:40<00:31, 10.59s/it][06:23:53]   denoise step 4: transformer forward 4.78s
+ 67%|██████▋   | 4/6 [00:45<00:16,  8.31s/it][06:23:58]   denoise step 5: transformer forward 4.66s
+ 83%|████████▎ | 5/6 [00:49<00:07,  7.01s/it][06:24:03]   denoise step 6: transformer forward 4.74s
+100%|██████████| 6/6 [00:54<00:00,  6.25s/it]100%|██████████| 6/6 [00:54<00:00,  9.10s/it]
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/4 [00:00<?, ?it/s][06:27:37]   denoise step 1: transformer forward 72.40s
+ 25%|██▌       | 1/4 [01:12<03:37, 72.45s/it][06:28:09]   denoise step 2: transformer forward 31.57s
+ 50%|█████     | 2/4 [01:44<01:36, 48.45s/it][06:28:41]   denoise step 3: transformer forward 31.77s
+ 75%|███████▌  | 3/4 [02:15<00:40, 40.87s/it][06:29:12]   denoise step 4: transformer forward 31.68s
+100%|██████████| 4/4 [02:47<00:00, 37.27s/it]100%|██████████| 4/4 [02:47<00:00, 41.93s/it]
+Encoding video chunks:   0%|          | 0/1 [00:00<?, ?it/s]Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s]Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s]
+[06:31:08] TIMINGS {"job_index": 1, "workflow": "t2va", "image": null, "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 500, "process_setup_s": 22.23, "stage1_s": 139.96, "stage1_steps_s": [30.833, 4.567, 4.818, 4.778, 4.655, 4.739], "upscale_s": 59.45, "refine_s": 282.82, "refine_steps_s": [72.403, 31.573, 31.771, 31.682], "encode_mp4_s": 2.3, "text_encoder_s": 7.02, "audio_vae_decode_s": 81.14, "video_vae_decode_s": 109.94, "job_s": 484.55, "output_sha256": "c712b4989975c900c4872a581c5d06808f2776fddffbc1d7fcd605f6b59df103"}
+[06:31:08] DONE /dev/shm/pika/outputs/raj_r500.mp4
+[06:31:08] Job 2/6: raj_r250.mp4 t2va 5s seed=42 upscale->1664x960 refine_from=250
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/6 [00:00<?, ?it/s][06:31:15]   denoise step 1: transformer forward 4.86s
+ 17%|█▋        | 1/6 [00:04<00:24,  4.87s/it][06:31:20]   denoise step 2: transformer forward 4.63s
+ 33%|███▎      | 2/6 [00:09<00:18,  4.73s/it][06:31:24]   denoise step 3: transformer forward 4.48s
+ 50%|█████     | 3/6 [00:14<00:13,  4.64s/it][06:31:29]   denoise step 4: transformer forward 4.66s
+ 67%|██████▋   | 4/6 [00:18<00:09,  4.65s/it][06:31:33]   denoise step 5: transformer forward 4.76s
+ 83%|████████▎ | 5/6 [00:23<00:04,  4.71s/it][06:31:38]   denoise step 6: transformer forward 4.75s
+100%|██████████| 6/6 [00:28<00:00,  4.73s/it]100%|██████████| 6/6 [00:28<00:00,  4.71s/it]
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/3 [00:00<?, ?it/s][06:32:23]   denoise step 1: transformer forward 31.94s
+ 33%|███▎      | 1/3 [00:32<01:04, 32.02s/it][06:32:54]   denoise step 2: transformer forward 31.71s
+ 67%|██████▋   | 2/3 [01:03<00:31, 31.88s/it][06:33:26]   denoise step 3: transformer forward 31.53s
+100%|██████████| 3/3 [01:35<00:00, 31.76s/it]100%|██████████| 3/3 [01:35<00:00, 31.81s/it]
+Encoding video chunks:   0%|          | 0/1 [00:00<?, ?it/s]Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.08it/s]Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.08it/s]
+[06:34:34] TIMINGS {"job_index": 2, "workflow": "t2va", "image": null, "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 0.0, "stage1_s": 31.56, "stage1_steps_s": [4.864, 4.628, 4.478, 4.656, 4.76, 4.745], "upscale_s": 9.23, "refine_s": 163.54, "refine_steps_s": [31.94, 31.707, 31.532], "encode_mp4_s": 2.06, "text_encoder_s": 4.2, "audio_vae_decode_s": 1.47, "video_vae_decode_s": 63.61, "job_s": 206.41, "output_sha256": "cb086a53f192aa2cd9a7112ba3e3259d8d9ffbbfb37d43fb93b14cf26eea0619"}
+[06:34:34] DONE /dev/shm/pika/outputs/raj_r250.mp4
+[06:34:34] Job 3/6: him_r500.mp4 t2va 5s seed=42 upscale->1664x960 refine_from=500
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/6 [00:00<?, ?it/s][06:34:49]   denoise step 1: transformer forward 12.27s
+ 17%|█▋        | 1/6 [00:12<01:01, 12.31s/it][06:34:53]   denoise step 2: transformer forward 4.62s
+ 33%|███▎      | 2/6 [00:16<00:31,  7.80s/it][06:34:58]   denoise step 3: transformer forward 4.68s
+ 50%|█████     | 3/6 [00:21<00:19,  6.40s/it][06:35:03]   denoise step 4: transformer forward 4.67s
+ 67%|██████▋   | 4/6 [00:26<00:11,  5.74s/it][06:35:07]   denoise step 5: transformer forward 4.70s
+ 83%|████████▎ | 5/6 [00:31<00:05,  5.37s/it][06:35:12]   denoise step 6: transformer forward 4.79s
+100%|██████████| 6/6 [00:35<00:00,  5.19s/it]100%|██████████| 6/6 [00:35<00:00,  5.99s/it]
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/4 [00:00<?, ?it/s][06:36:15]   denoise step 1: transformer forward 50.59s
+ 25%|██▌       | 1/4 [00:50<02:31, 50.66s/it][06:36:47]   denoise step 2: transformer forward 31.66s
+ 50%|█████     | 2/4 [01:22<01:19, 39.53s/it][06:37:19]   denoise step 3: transformer forward 31.79s
+ 75%|███████▌  | 3/4 [01:54<00:36, 36.03s/it][06:37:51]   denoise step 4: transformer forward 31.77s
+100%|██████████| 4/4 [02:26<00:00, 34.39s/it]100%|██████████| 4/4 [02:26<00:00, 36.53s/it]
+Encoding video chunks:   0%|          | 0/1 [00:00<?, ?it/s]Encoding video chunks: 100%|██████████| 1/1 [00:01<00:00,  1.05s/it]Encoding video chunks: 100%|██████████| 1/1 [00:01<00:00,  1.05s/it]
+[06:39:05] TIMINGS {"job_index": 3, "workflow": "t2va", "image": null, "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 500, "process_setup_s": 0.0, "stage1_s": 39.36, "stage1_steps_s": [12.272, 4.621, 4.681, 4.671, 4.7, 4.79], "upscale_s": 9.23, "refine_s": 219.5, "refine_steps_s": [50.591, 31.656, 31.793, 31.772], "encode_mp4_s": 2.39, "text_encoder_s": 3.93, "audio_vae_decode_s": 3.08, "video_vae_decode_s": 66.97, "job_s": 270.54, "output_sha256": "5239d84d1c00ec92d2e5d66bb3dbdb4bb688762eefcdde6e3d561aeaadc211e7"}
+[06:39:05] DONE /dev/shm/pika/outputs/him_r500.mp4
+[06:39:05] Job 4/6: him_r250.mp4 t2va 5s seed=42 upscale->1664x960 refine_from=250
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/6 [00:00<?, ?it/s][06:39:34]   denoise step 1: transformer forward 5.30s
+ 17%|█▋        | 1/6 [00:05<00:26,  5.35s/it][06:39:39]   denoise step 2: transformer forward 5.24s
+ 33%|███▎      | 2/6 [00:10<00:21,  5.31s/it][06:39:44]   denoise step 3: transformer forward 5.20s
+ 50%|█████     | 3/6 [00:15<00:15,  5.29s/it][06:39:50]   denoise step 4: transformer forward 5.21s
+ 67%|██████▋   | 4/6 [00:21<00:10,  5.28s/it][06:39:55]   denoise step 5: transformer forward 5.22s
+ 83%|████████▎ | 5/6 [00:26<00:05,  5.27s/it][06:40:00]   denoise step 6: transformer forward 5.28s
+100%|██████████| 6/6 [00:31<00:00,  5.29s/it]100%|██████████| 6/6 [00:31<00:00,  5.29s/it]
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/3 [00:00<?, ?it/s][06:41:09]   denoise step 1: transformer forward 32.47s
+ 33%|███▎      | 1/3 [00:32<01:05, 32.54s/it][06:41:41]   denoise step 2: transformer forward 32.32s
+ 67%|██████▋   | 2/3 [01:04<00:32, 32.46s/it][06:42:13]   denoise step 3: transformer forward 32.14s
+100%|██████████| 3/3 [01:37<00:00, 32.35s/it]100%|██████████| 3/3 [01:37<00:00, 32.39s/it]
+Encoding video chunks:   0%|          | 0/1 [00:00<?, ?it/s]Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s]Encoding video chunks: 100%|██████████| 1/1 [00:00<00:00,  1.01it/s]
+[06:43:39] TIMINGS {"job_index": 4, "workflow": "t2va", "image": null, "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 0.0, "stage1_s": 57.88, "stage1_steps_s": [5.301, 5.235, 5.203, 5.209, 5.22, 5.278], "upscale_s": 9.28, "refine_s": 205.31, "refine_steps_s": [32.468, 32.32, 32.136], "encode_mp4_s": 2.14, "text_encoder_s": 47.64, "audio_vae_decode_s": 4.0, "video_vae_decode_s": 80.29, "job_s": 274.69, "output_sha256": "2ab372b5bb4aed4b633aee430ac917cd5f61d5ce42a29b0fd009b66fe27d612b"}
+[06:43:39] DONE /dev/shm/pika/outputs/him_r250.mp4
+[06:43:39] Job 5/6: kerala_a.mp4 t2va 5s seed=42 upscale->1664x960 refine_from=500
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/6 [00:00<?, ?it/s][06:44:09]   denoise step 1: transformer forward 13.31s
+ 17%|█▋        | 1/6 [00:13<01:06, 13.36s/it][06:44:14]   denoise step 2: transformer forward 5.25s
+ 33%|███▎      | 2/6 [00:18<00:34,  8.62s/it][06:44:20]   denoise step 3: transformer forward 5.21s
+ 50%|█████     | 3/6 [00:23<00:21,  7.09s/it][06:44:25]   denoise step 4: transformer forward 5.15s
+ 67%|██████▋   | 4/6 [00:29<00:12,  6.34s/it][06:44:30]   denoise step 5: transformer forward 5.00s
+ 83%|████████▎ | 5/6 [00:34<00:05,  5.88s/it][06:44:35]   denoise step 6: transformer forward 5.17s
+100%|██████████| 6/6 [00:39<00:00,  5.65s/it]100%|██████████| 6/6 [00:39<00:00,  6.57s/it]
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/4 [00:00<?, ?it/s][06:45:53]   denoise step 1: transformer forward 50.65s
+ 25%|██▌       | 1/4 [00:50<02:32, 50.71s/it][06:46:25]   denoise step 2: transformer forward 32.32s
+ 50%|█████     | 2/4 [01:23<01:19, 39.94s/it][06:46:58]   denoise step 3: transformer forward 32.20s
+ 75%|███████▌  | 3/4 [01:55<00:36, 36.44s/it][06:47:30]   denoise step 4: transformer forward 32.17s
+100%|██████████| 4/4 [02:27<00:00, 34.79s/it]100%|██████████| 4/4 [02:27<00:00, 36.91s/it]
+Encoding video chunks:   0%|          | 0/1 [00:00<?, ?it/s]Encoding video chunks: 100%|██████████| 1/1 [00:01<00:00,  1.27s/it]Encoding video chunks: 100%|██████████| 1/1 [00:01<00:00,  1.27s/it]
+[06:48:57] TIMINGS {"job_index": 5, "workflow": "t2va", "image": null, "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 500, "process_setup_s": 0.0, "stage1_s": 57.76, "stage1_steps_s": [13.309, 5.245, 5.206, 5.148, 5.0, 5.172], "upscale_s": 9.28, "refine_s": 248.19, "refine_steps_s": [50.647, 32.323, 32.204, 32.167], "encode_mp4_s": 2.62, "text_encoder_s": 31.94, "audio_vae_decode_s": 3.35, "video_vae_decode_s": 81.4, "job_s": 317.93, "output_sha256": "d37d3b9d18203d5b5c44bff701f00a74591792b71867a59e71d2efaae478c65c"}
+[06:48:57] DONE /dev/shm/pika/outputs/kerala_a.mp4
+[06:48:57] Job 6/6: kerala_b.mp4 fl2va 5s seed=42 first_frame=kerala_a_last.png upscale->1664x960 refine_from=500
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/6 [00:00<?, ?it/s][06:50:22]   denoise step 1: transformer forward 32.51s
+ 17%|█▋        | 1/6 [00:32<02:42, 32.56s/it][06:50:55]   denoise step 2: transformer forward 32.75s
+ 33%|███▎      | 2/6 [01:05<02:10, 32.70s/it][06:51:01]   denoise step 3: transformer forward 5.51s
+ 50%|█████     | 3/6 [01:10<01:00, 20.31s/it][06:51:06]   denoise step 4: transformer forward 5.44s
+ 67%|██████▋   | 4/6 [01:16<00:28, 14.46s/it][06:51:12]   denoise step 5: transformer forward 5.43s
+ 83%|████████▎ | 5/6 [01:21<00:11, 11.22s/it][06:51:17]   denoise step 6: transformer forward 5.39s
+100%|██████████| 6/6 [01:27<00:00,  9.25s/it]100%|██████████| 6/6 [01:27<00:00, 14.55s/it]
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/4 [00:00<?, ?it/s]
+Error in block: (denoiser, PikaH3FlexLoopDenoiser)
+Error details: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+Traceback:
+Traceback (most recent call last):
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1588, in loop_step
+    components, state = block(components, state, **kwargs)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/pika_h3_flex/denoise.py", line 124, in __call__
+    block_state.noise_pred, block_state.audio_noise_pred = transformer(
+                                                           ^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 237, in forward
+    out = original(*_move(args, self.head), **_move(kwargs, self.head))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/utils/peft_utils.py", line 323, in wrapper
+    result = forward_fn(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/models/transformers/transformer_minimax_h3.py", line 660, in forward
+    hidden_states = self.norm_out(hidden_states, temb, timestep_indices).to(get_parameter_dtype(self.proj_out))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1881, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1808, in inner
+    args_kwargs_result = hook(self, args, kwargs)  # type: ignore[misc]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 249, in hook
+    return _move(args, device), _move(kwargs, device)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 164, in _move
+    return type(obj)(_move(o, device) for o in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 164, in <genexpr>
+    return type(obj)(_move(o, device) for o in obj)
+                     ^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 162, in _move
+    return obj if obj.device == device else obj.to(device)
+                                            ^^^^^^^^^^^^^^
+RuntimeError: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+
+  0%|          | 0/4 [01:06<?, ?it/s]
+
+Error in block: (denoise, PikaH3FlexDenoiseStep)
+Error details: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+Traceback:
+Traceback (most recent call last):
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1218, in __call__
+    pipeline, state = block(pipeline, state)
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/pika_h3_flex/denoise.py", line 286, in __call__
+    components, block_state = self.loop_step(components, block_state, i=i, t=t)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1588, in loop_step
+    components, state = block(components, state, **kwargs)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/pika_h3_flex/denoise.py", line 124, in __call__
+    block_state.noise_pred, block_state.audio_noise_pred = transformer(
+                                                           ^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 237, in forward
+    out = original(*_move(args, self.head), **_move(kwargs, self.head))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/utils/peft_utils.py", line 323, in wrapper
+    result = forward_fn(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/models/transformers/transformer_minimax_h3.py", line 660, in forward
+    hidden_states = self.norm_out(hidden_states, temb, timestep_indices).to(get_parameter_dtype(self.proj_out))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1881, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1808, in inner
+    args_kwargs_result = hook(self, args, kwargs)  # type: ignore[misc]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 249, in hook
+    return _move(args, device), _move(kwargs, device)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 164, in _move
+    return type(obj)(_move(o, device) for o in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 164, in <genexpr>
+    return type(obj)(_move(o, device) for o in obj)
+                     ^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 162, in _move
+    return obj if obj.device == device else obj.to(device)
+                                            ^^^^^^^^^^^^^^
+RuntimeError: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+
+
+Error in block: PikaH3FlexFL2VACoreDenoiseStep
+Error details: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+Traceback:
+Traceback (most recent call last):
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 858, in __call__
+    return block(pipeline, state)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1218, in __call__
+    pipeline, state = block(pipeline, state)
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/pika_h3_flex/denoise.py", line 286, in __call__
+    components, block_state = self.loop_step(components, block_state, i=i, t=t)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1588, in loop_step
+    components, state = block(components, state, **kwargs)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/pika_h3_flex/denoise.py", line 124, in __call__
+    block_state.noise_pred, block_state.audio_noise_pred = transformer(
+                                                           ^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 237, in forward
+    out = original(*_move(args, self.head), **_move(kwargs, self.head))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/utils/peft_utils.py", line 323, in wrapper
+    result = forward_fn(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/models/transformers/transformer_minimax_h3.py", line 660, in forward
+    hidden_states = self.norm_out(hidden_states, temb, timestep_indices).to(get_parameter_dtype(self.proj_out))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1881, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1808, in inner
+    args_kwargs_result = hook(self, args, kwargs)  # type: ignore[misc]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 249, in hook
+    return _move(args, device), _move(kwargs, device)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 164, in _move
+    return type(obj)(_move(o, device) for o in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 164, in <genexpr>
+    return type(obj)(_move(o, device) for o in obj)
+                     ^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 162, in _move
+    return obj if obj.device == device else obj.to(device)
+                                            ^^^^^^^^^^^^^^
+RuntimeError: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+
+
+Error in block: (denoise, PikaH3FlexAutoDenoiseStep)
+Error details: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+Traceback:
+Traceback (most recent call last):
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1218, in __call__
+    pipeline, state = block(pipeline, state)
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 858, in __call__
+    return block(pipeline, state)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1218, in __call__
+    pipeline, state = block(pipeline, state)
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/pika_h3_flex/denoise.py", line 286, in __call__
+    components, block_state = self.loop_step(components, block_state, i=i, t=t)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1588, in loop_step
+    components, state = block(components, state, **kwargs)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/pika_h3_flex/denoise.py", line 124, in __call__
+    block_state.noise_pred, block_state.audio_noise_pred = transformer(
+                                                           ^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 237, in forward
+    out = original(*_move(args, self.head), **_move(kwargs, self.head))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/utils/peft_utils.py", line 323, in wrapper
+    result = forward_fn(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/models/transformers/transformer_minimax_h3.py", line 660, in forward
+    hidden_states = self.norm_out(hidden_states, temb, timestep_indices).to(get_parameter_dtype(self.proj_out))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1881, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1808, in inner
+    args_kwargs_result = hook(self, args, kwargs)  # type: ignore[misc]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 249, in hook
+    return _move(args, device), _move(kwargs, device)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 164, in _move
+    return type(obj)(_move(o, device) for o in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 164, in <genexpr>
+    return type(obj)(_move(o, device) for o in obj)
+                     ^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 162, in _move
+    return obj if obj.device == device else obj.to(device)
+                                            ^^^^^^^^^^^^^^
+RuntimeError: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+
+Error in block: (PikaH3FlexBlocks):
+
+Traceback (most recent call last):
+  File "/root/generate_pika_tpu.py", line 504, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/root/generate_pika_tpu.py", line 481, in main
+    res = call(H2, W2, {"latents": x_v, "audio_latents": x_a}, seed + 2)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 445, in call
+    return pipe(**kw)
+           ^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 3031, in __call__
+    _, state = self._blocks(self, state)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1218, in __call__
+    pipeline, state = block(pipeline, state)
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 858, in __call__
+    return block(pipeline, state)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1218, in __call__
+    pipeline, state = block(pipeline, state)
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/pika_h3_flex/denoise.py", line 286, in __call__
+    components, block_state = self.loop_step(components, block_state, i=i, t=t)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/modular_pipeline.py", line 1588, in loop_step
+    components, state = block(components, state, **kwargs)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/modular_pipelines/pika_h3_flex/denoise.py", line 124, in __call__
+    block_state.noise_pred, block_state.audio_noise_pred = transformer(
+                                                           ^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 237, in forward
+    out = original(*_move(args, self.head), **_move(kwargs, self.head))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/utils/peft_utils.py", line 323, in wrapper
+    result = forward_fn(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/diffusers/models/transformers/transformer_minimax_h3.py", line 660, in forward
+    hidden_states = self.norm_out(hidden_states, temb, timestep_indices).to(get_parameter_dtype(self.proj_out))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1881, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/root/pika-venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1808, in inner
+    args_kwargs_result = hook(self, args, kwargs)  # type: ignore[misc]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 249, in hook
+    return _move(args, device), _move(kwargs, device)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 164, in _move
+    return type(obj)(_move(o, device) for o in obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 164, in <genexpr>
+    return type(obj)(_move(o, device) for o in obj)
+                     ^^^^^^^^^^^^^^^^
+  File "/root/generate_pika_tpu.py", line 162, in _move
+    return obj if obj.device == device else obj.to(device)
+                                            ^^^^^^^^^^^^^^
+RuntimeError: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+ERROR:root:Caught an exception when exiting the process. Exception: 
+Traceback (most recent call last):
+  File "/root/pika-venv/lib/python3.12/site-packages/torch_xla/__init__.py", line 204, in _prepare_to_exit
+    _XLAC._prepare_to_exit()
+RuntimeError: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.

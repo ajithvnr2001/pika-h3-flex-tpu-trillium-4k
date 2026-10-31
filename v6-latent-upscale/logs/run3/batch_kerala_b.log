@@ -1,0 +1,51 @@
+WARNING:torch_xla.backends:Setting mat mul precision multiple times is not recommended. If you need to do so, please empirically verify that the precision setting is behaving as expected.
+[06:57:57] 1 job(s); base 832x480, upscale 2.0x -> 1664x960
+/root/pika-venv/lib/python3.12/site-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00, 60.63it/s]
+Loading weights:   0%|          | 0/1058 [00:00<?, ?it/s]Loading weights:  98%|█████████▊| 1034/1058 [00:00<00:00, 10314.04it/s]Loading weights: 100%|██████████| 1058/1058 [00:00<00:00, 10345.49it/s]
+Loading checkpoint shards:   0%|          | 0/7 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 7/7 [00:00<00:00, 152.22it/s]
+[ERROR] `min_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[ERROR] `max_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[06:58:00] Components + FL2VA adapter loaded in 2.8s
+[06:58:06] TPU devices: ['xla:0', 'xla:1', 'xla:2', 'xla:3']
+[06:58:15] Transformer weights moved to TPU in 9.2s; blocks per chip: xla:0=0-13, xla:1=14-27, xla:2=28-40, xla:3=41-49
+[06:58:16] video VAE decoder -> xla:3
+[06:58:16] video VAE encoder (first-frame conditioning) -> xla:2
+[06:58:16] audio VAE -> xla:2
+[06:58:17] latent upscaler -> xla:1
+[06:58:17] Job 1/1: kerala_b.mp4 fl2va 5s seed=42 first_frame=kerala_a_last.png upscale->1664x960 refine_from=500
+2026-10-31 06:58:28.779640: W torch_xla/csrc/runtime/pjrt_computation_client.cpp:694] Failed to deserialize executable: UNIMPLEMENTED: Deserializing serialized executable not supported.
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/6 [00:00<?, ?it/s]2026-10-31 06:58:55.823581: W torch_xla/csrc/runtime/pjrt_computation_client.cpp:694] Failed to deserialize executable: UNIMPLEMENTED: Deserializing serialized executable not supported.
+2026-10-31 06:59:03.218711: W torch_xla/csrc/runtime/pjrt_computation_client.cpp:694] Failed to deserialize executable: UNIMPLEMENTED: Deserializing serialized executable not supported.
+2026-10-31 06:59:16.325875: W torch_xla/csrc/runtime/pjrt_computation_client.cpp:694] Failed to deserialize executable: UNIMPLEMENTED: Deserializing serialized executable not supported.
+2026-10-31 06:59:30.398077: W torch_xla/csrc/runtime/pjrt_computation_client.cpp:694] Failed to deserialize executable: UNIMPLEMENTED: Deserializing serialized executable not supported.
+2026-10-31 06:59:31.705044: W torch_xla/csrc/runtime/pjrt_computation_client.cpp:694] Failed to deserialize executable: UNIMPLEMENTED: Deserializing serialized executable not supported.
+[06:59:32]   denoise step 1: transformer forward 37.04s
+ 17%|█▋        | 1/6 [00:37<03:05, 37.09s/it]2026-10-31 06:59:32.830650: W torch_xla/csrc/runtime/pjrt_computation_client.cpp:694] Failed to deserialize executable: UNIMPLEMENTED: Deserializing serialized executable not supported.
+2026-10-31 06:59:40.311021: W torch_xla/csrc/runtime/pjrt_computation_client.cpp:694] Failed to deserialize executable: UNIMPLEMENTED: Deserializing serialized executable not supported.
+2026-10-31 06:59:53.467127: W torch_xla/csrc/runtime/pjrt_computation_client.cpp:694] Failed to deserialize executable: UNIMPLEMENTED: Deserializing serialized executable not supported.
+2026-10-31 07:00:07.922286: W torch_xla/csrc/runtime/pjrt_computation_client.cpp:694] Failed to deserialize executable: UNIMPLEMENTED: Deserializing serialized executable not supported.
+2026-10-31 07:00:09.237001: W torch_xla/csrc/runtime/pjrt_computation_client.cpp:694] Failed to deserialize executable: UNIMPLEMENTED: Deserializing serialized executable not supported.
+[07:00:10]   denoise step 2: transformer forward 37.50s
+ 33%|███▎      | 2/6 [01:14<02:29, 37.36s/it][07:00:15]   denoise step 3: transformer forward 5.03s
+ 50%|█████     | 3/6 [01:19<01:07, 22.60s/it][07:00:20]   denoise step 4: transformer forward 4.83s
+ 67%|██████▋   | 4/6 [01:24<00:31, 15.61s/it][07:00:25]   denoise step 5: transformer forward 4.79s
+ 83%|████████▎ | 5/6 [01:29<00:11, 11.71s/it][07:00:29]   denoise step 6: transformer forward 4.92s
+100%|██████████| 6/6 [01:34<00:00,  9.42s/it]100%|██████████| 6/6 [01:34<00:00, 15.72s/it]
+2026-10-31 07:00:31.652561: W torch_xla/csrc/runtime/pjrt_computation_client.cpp:694] Failed to deserialize executable: UNIMPLEMENTED: Deserializing serialized executable not supported.
+2026-10-31 07:01:51.770238: W torch_xla/csrc/runtime/pjrt_computation_client.cpp:694] Failed to deserialize executable: UNIMPLEMENTED: Deserializing serialized executable not supported.
+`num_frames` has to be of the form 17 * n + 5 for the video VAE; rounding 120 up to 124.
+  0%|          | 0/4 [00:00<?, ?it/s]2026-10-31 07:03:10.288492: W torch_xla/csrc/runtime/pjrt_computation_client.cpp:694] Failed to deserialize executable: UNIMPLEMENTED: Deserializing serialized executable not supported.
+2026-10-31 07:03:30.013449: W torch_xla/csrc/runtime/pjrt_computation_client.cpp:694] Failed to deserialize executable: UNIMPLEMENTED: Deserializing serialized executable not supported.
+2026-10-31 07:04:02.063040: W torch_xla/csrc/runtime/pjrt_computation_client.cpp:694] Failed to deserialize executable: UNIMPLEMENTED: Deserializing serialized executable not supported.
+[07:04:35]   denoise step 1: transformer forward 85.41s
+ 25%|██▌       | 1/4 [01:25<04:16, 85.46s/it][07:05:11]   denoise step 2: transformer forward 36.02s
+ 50%|█████     | 2/4 [02:01<01:52, 56.43s/it][07:05:47]   denoise step 3: transformer forward 36.16s
+ 75%|███████▌  | 3/4 [02:37<00:47, 47.21s/it][07:06:24]   denoise step 4: transformer forward 36.28s
+100%|██████████| 4/4 [03:14<00:00, 42.93s/it]100%|██████████| 4/4 [03:14<00:00, 48.54s/it]
+2026-10-31 07:06:24.686110: W torch_xla/csrc/runtime/pjrt_computation_client.cpp:694] Failed to deserialize executable: UNIMPLEMENTED: Deserializing serialized executable not supported.
+Encoding video chunks:   0%|          | 0/1 [00:00<?, ?it/s]Encoding video chunks: 100%|██████████| 1/1 [00:01<00:00,  1.31s/it]Encoding video chunks: 100%|██████████| 1/1 [00:01<00:00,  1.31s/it]
+[07:08:18] TIMINGS {"job_index": 1, "workflow": "fl2va", "image": "/dev/shm/pika/outputs/kerala_a_last.png", "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 500, "process_setup_s": 20.15, "stage1_s": 213.03, "stage1_steps_s": [37.039, 37.499, 5.029, 4.833, 4.794, 4.923], "upscale_s": 61.16, "refine_s": 323.53, "refine_steps_s": [85.413, 36.018, 36.157, 36.276], "encode_mp4_s": 2.74, "text_encoder_s": 27.75, "audio_vae_decode_s": 80.89, "video_vae_decode_s": 108.83, "job_s": 600.49, "output_sha256": "80557ebecdc4bf481bd3b3f189fea320e0800e3917f4a4eb4ae76f5d941fabb6"}
+[07:08:18] DONE /dev/shm/pika/outputs/kerala_b.mp4

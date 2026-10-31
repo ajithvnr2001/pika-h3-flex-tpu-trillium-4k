@@ -1,0 +1,37 @@
+{
+  "job_index": 1,
+  "workflow": "fl2va",
+  "prompt": "For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.\n\nintegrated_multimodal_description: [Shot 1] Begin with the supplied image of a traditional wooden Kerala houseboat with a curved thatched bamboo roof on calm green backwaters at golden hour, coconut palms on both banks. Preserve the houseboat, the palms, the water and the warm light. The houseboat keeps gliding forward and the camera continues its smooth tracking shot alongside it. The sun sinks lower toward the palm line, the sky turns deeper orange, and ripples spread across the water as a gentle breeze moves the palm fronds. By the end the houseboat drifts calmly in the glowing evening light. Photorealistic, natural colors, 35mm film look.\n\noverall_soundscape: Gentle water lapping against the wooden hull, palm fronds rustling in the breeze and distant evening birdsong. No speech.\n\nnon_diegetic_music: N/A",
+  "image": "/dev/shm/pika/outputs/kerala_a_last.png",
+  "seed": 42,
+  "duration_s": 5,
+  "frames": 124,
+  "base": "832x480",
+  "output": "1664x960",
+  "upscale": 2.0,
+  "refine_from": 500,
+  "process_setup_s": 20.15,
+  "stage1_s": 213.03,
+  "stage1_steps_s": [
+    37.039,
+    37.499,
+    5.029,
+    4.833,
+    4.794,
+    4.923
+  ],
+  "upscale_s": 61.16,
+  "refine_s": 323.53,
+  "refine_steps_s": [
+    85.413,
+    36.018,
+    36.157,
+    36.276
+  ],
+  "encode_mp4_s": 2.74,
+  "text_encoder_s": 27.75,
+  "audio_vae_decode_s": 80.89,
+  "video_vae_decode_s": 108.83,
+  "job_s": 600.49,
+  "output_sha256": "80557ebecdc4bf481bd3b3f189fea320e0800e3917f4a4eb4ae76f5d941fabb6"
+}

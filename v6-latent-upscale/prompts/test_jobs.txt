@@ -1,0 +1,7 @@
+# v6 test: refine_from 500 vs 250 on two prompts, then a 2-clip extension chain (seam check).
+prompts/prompt_rajasthan_5s.txt  raj_r500   5  refine_from=500
+prompts/prompt_rajasthan_5s.txt  raj_r250   5  refine_from=250
+prompts/prompt_himalaya_5s.txt   him_r500   5  refine_from=500
+prompts/prompt_himalaya_5s.txt   him_r250   5  refine_from=250
+prompts/prompt_5s.txt            kerala_a   5
+prompts/prompt_extend.txt        kerala_b   5  @kerala_a

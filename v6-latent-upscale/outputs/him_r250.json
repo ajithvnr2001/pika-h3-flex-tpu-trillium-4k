@@ -1,0 +1,36 @@
+{
+  "job_index": 4,
+  "workflow": "t2va",
+  "prompt": "integrated_multimodal_description: A cinematic aerial shot gliding over a Himalayan mountain valley at sunrise. Snow-capped peaks glow pink and gold, prayer flags in red, yellow, green, blue and white flutter on a rope across a rocky ridge in the foreground, and a small stone monastery with a golden roof sits on the hillside below. Thin clouds drift slowly through the valley as the camera moves forward. Photorealistic, natural colors, 35mm film look.\noverall_soundscape: Strong mountain wind, prayer flags snapping in the breeze and a distant deep monastery bell. No speech.\nnon_diegetic_music: None.",
+  "image": null,
+  "seed": 42,
+  "duration_s": 5,
+  "frames": 124,
+  "base": "832x480",
+  "output": "1664x960",
+  "upscale": 2.0,
+  "refine_from": 250,
+  "process_setup_s": 0.0,
+  "stage1_s": 57.88,
+  "stage1_steps_s": [
+    5.301,
+    5.235,
+    5.203,
+    5.209,
+    5.22,
+    5.278
+  ],
+  "upscale_s": 9.28,
+  "refine_s": 205.31,
+  "refine_steps_s": [
+    32.468,
+    32.32,
+    32.136
+  ],
+  "encode_mp4_s": 2.14,
+  "text_encoder_s": 47.64,
+  "audio_vae_decode_s": 4.0,
+  "video_vae_decode_s": 80.29,
+  "job_s": 274.69,
+  "output_sha256": "2ab372b5bb4aed4b633aee430ac917cd5f61d5ce42a29b0fd009b66fe27d612b"
+}

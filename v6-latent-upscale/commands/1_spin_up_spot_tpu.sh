@@ -20,7 +20,7 @@ if ! gcloud compute tpus tpu-vm describe "$TPU" "${G[@]}" >/dev/null 2>&1; then
       --accelerator-type="$ACCEL" --version="$RUNTIME" "${spot_flag[@]}"
 fi
 
-tpu_scp "$V4_DIR/scripts/bootstrap_tpu.sh" "$V4_DIR/scripts/generate_pika_tpu.py" "$V4_DIR/scripts/run.sh" "$V4_DIR/scripts/upscale_test.py" "$V4_DIR/scripts/latent_upscaler.py" "$V4_DIR/scripts/check_upscaler_convention.py" "$TPU":~/
+tpu_scp "$V4_DIR/scripts/bootstrap_tpu.sh" "$V4_DIR/scripts/generate_pika_tpu.py" "$V4_DIR/scripts/latent_upscaler.py" "$V4_DIR/scripts/qa_frames.sh" "$TPU":~/
 # The token goes into a 600-mode file on the VM; it is never put on a command line that gets logged.
 printf 'export HF_TOKEN=%q\n' "$HF_TOKEN" | tpu_ssh 'umask 077; cat > ~/.hf.env'
 tpu_ssh 'chmod +x ~/*.sh; . ~/.hf.env; ~/bootstrap_tpu.sh 2>&1 | tee ~/bootstrap.log | grep -E "^\[|Downloaded|torch "'

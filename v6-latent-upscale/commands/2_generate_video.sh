@@ -1,29 +1,12 @@
 #!/usr/bin/env bash
-# STEP 2: generate a real video on the TPU from your prompt.
-#
-#   commands/2_generate_video.sh "<prompt text or path to a .txt file>" <name> [duration 5-15] [first_frame.png]
-#
-# Examples:
-#   commands/2_generate_video.sh prompts/prompt_5s.txt kerala_5s
-#   commands/2_generate_video.sh "integrated_multimodal_description: A red kite flying over a beach ..." kite 5
-#   commands/2_generate_video.sh prompts/prompt_extend.txt kerala_ext 5 outputs/kerala_5s_last.png   # continue a clip
-#
-# v5 timing (480p, 5 s): ~142 s on a fresh VM (one process per call, so every call pays the compile).
-# For several clips use 2_generate_batch.sh: later clips take 51-77 s.
+# STEP 2 (one clip): commands/2_generate_video.sh "<prompt text or prompt.txt>" <name> [duration] [first_frame|@name]
+# Upscaled to 1664x960 by default (GEN_ARGS="" for plain 480p). For several clips use 2_generate_batch.sh:
+# it loads and compiles the model once.
 set -euo pipefail
-. "$(dirname "$0")/common.sh"
-PROMPT="${1:?prompt text or prompt file}"; NAME="${2:?output name}"; DUR="${3:-5}"; IMG="${4:-}"
-
-tmp=$(mktemp)
-if [ -f "$PROMPT" ]; then cp "$PROMPT" "$tmp"; else printf '%s\n' "$PROMPT" > "$tmp"; fi
-tpu_scp "$tmp" "$TPU":~/prompt_"$NAME".txt; rm -f "$tmp"
-remote_img="''"   # empty placeholder keeps the duration in the 4th position
-if [ -n "$IMG" ]; then tpu_scp "$IMG" "$TPU":~/frame_"$NAME".png; remote_img="~/frame_$NAME.png"; fi
-
-tpu_ssh "set -o pipefail; ~/run.sh ~/prompt_$NAME.txt /dev/shm/pika/outputs/$NAME.mp4 $remote_img $DUR 2>&1 | tee ~/run_$NAME.log | grep --line-buffered -E '^\[|denoise step|Error|Traceback'"
-# Do not trust the ssh exit code alone (a preempted VM can drop the session): check the file exists.
-tpu_ssh "test -s /dev/shm/pika/outputs/$NAME.mp4" || {
-  echo "STEP 2 FAILED: no output. Check 'gcloud compute tpus tpu-vm describe $TPU ${G[*]}' (PREEMPTED? rerun step 1)."
-  exit 1
-}
-echo "STEP 2 done: /dev/shm/pika/outputs/$NAME.mp4 on $TPU"
+here="$(dirname "$0")"
+PROMPT="${1:?prompt text or prompt file}"; NAME="${2:?name}"; DUR="${3:-5}"; IMG="${4:--}"
+tmpd=$(mktemp -d)
+if [ -f "$PROMPT" ]; then cp "$PROMPT" "$tmpd/prompt.txt"; else printf '%s\n' "$PROMPT" > "$tmpd/prompt.txt"; fi
+echo "$tmpd/prompt.txt $NAME $DUR $IMG" > "$tmpd/jobs.txt"
+bash "$here/2_generate_batch.sh" "$tmpd/jobs.txt"
+rm -rf "$tmpd"

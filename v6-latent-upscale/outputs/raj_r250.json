@@ -1,0 +1,36 @@
+{
+  "job_index": 2,
+  "workflow": "t2va",
+  "prompt": "integrated_multimodal_description: A cinematic wide shot of a camel caravan walking slowly across golden sand dunes in the Thar desert of Rajasthan at sunset. Three camels decorated with colorful tasselled saddles walk in a line, led by a man in a bright red turban and white kurta holding a rope. Long shadows stretch across the rippled sand, fine sand blows off the dune crest in the wind, and the low orange sun glows behind the caravan. The camera slowly pans to follow them. Photorealistic, natural colors, 35mm film look.\noverall_soundscape: Soft desert wind, the crunch of camel footsteps in sand, a camel bell gently jingling and a low camel grunt. No speech.\nnon_diegetic_music: None.",
+  "image": null,
+  "seed": 42,
+  "duration_s": 5,
+  "frames": 124,
+  "base": "832x480",
+  "output": "1664x960",
+  "upscale": 2.0,
+  "refine_from": 250,
+  "process_setup_s": 0.0,
+  "stage1_s": 31.56,
+  "stage1_steps_s": [
+    4.864,
+    4.628,
+    4.478,
+    4.656,
+    4.76,
+    4.745
+  ],
+  "upscale_s": 9.23,
+  "refine_s": 163.54,
+  "refine_steps_s": [
+    31.94,
+    31.707,
+    31.532
+  ],
+  "encode_mp4_s": 2.06,
+  "text_encoder_s": 4.2,
+  "audio_vae_decode_s": 1.47,
+  "video_vae_decode_s": 63.61,
+  "job_s": 206.41,
+  "output_sha256": "cb086a53f192aa2cd9a7112ba3e3259d8d9ffbbfb37d43fb93b14cf26eea0619"
+}

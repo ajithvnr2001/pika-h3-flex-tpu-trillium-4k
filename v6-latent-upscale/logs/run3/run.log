@@ -1,0 +1,166 @@
+06:19:15 start
+Propagating SSH public key to all TPU workers...
+..........................................................done.
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Warning: Permanently added 'tpu.3298763490796899487-0-tcykeh' (ED25519) to the list of known hosts.
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+[06:19:56] 1/4 RAM disk
+[06:19:56] 2/4 System packages (ffmpeg)
+[06:20:35] 3/4 Python 3.12 venv with torch/torch_xla 2.9 and the pinned Pika stack
+ Downloaded cpython-3.12.16-linux-x86_64-gnu (download)
+Downloading torch (175.8MiB)
+ Downloaded setuptools
+ Downloaded torchvision
+ Downloaded networkx
+ Downloaded pillow
+ Downloaded sympy
+ Downloaded numpy
+ Downloaded torch
+ Downloaded pygments
+ Downloaded grpcio
+ Downloaded torch-xla
+ Downloaded libtpu
+ Downloaded tokenizers
+ Downloaded hf-xet
+ Downloaded pillow
+ Downloaded numpy
+ Downloaded transformers
+ Downloaded av
+ Downloaded jax
+ Downloaded scipy
+ Downloaded jaxlib
+torch 2.9.0+cpu | torch_xla 2.9.0 | diffusers 0.42.0.dev0 | transformers 5.15.0
+[06:20:59] 4/4 Model weights (only the t2va/fl2va parts, ~147 GB) into /dev/shm/pika/model
+[32m✓ Downloaded[0m
+Downloaded 146 GB in 39 s
+[06:21:38] 5/5 Latent upscaler (LBH-123-AI/Minimax_h3_latent_Upscaler v1, bf16, 691 MB)
+[32m✓ Downloaded[0m
+[06:21:41] Bootstrap done
+STEP 1 done: pika-europe-tpu is ready.
+06:21:41 STEP1 OK
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+[06:22:41] 6 job(s); base 832x480, upscale 2.0x -> 1664x960
+[ERROR] `min_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[ERROR] `max_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[06:22:44] Components + FL2VA adapter loaded in 3.4s
+[06:22:50] TPU devices: ['xla:0', 'xla:1', 'xla:2', 'xla:3']
+[06:23:00] Transformer weights moved to TPU in 10.1s; blocks per chip: xla:0=0-12, xla:1=13-25, xla:2=26-38, xla:3=39-49
+[06:23:01] video VAE decoder -> xla:3
+[06:23:01] video VAE encoder (first-frame conditioning) -> xla:2
+[06:23:01] audio VAE -> xla:2
+[06:23:03] latent upscaler -> xla:1
+[06:23:03] Job 1/6: raj_r500.mp4 t2va 5s seed=42 upscale->1664x960 refine_from=500
+[06:31:08] TIMINGS {"job_index": 1, "workflow": "t2va", "image": null, "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 500, "process_setup_s": 22.23, "stage1_s": 139.96, "stage1_steps_s": [30.833, 4.567, 4.818, 4.778, 4.655, 4.739], "upscale_s": 59.45, "refine_s": 282.82, "refine_steps_s": [72.403, 31.573, 31.771, 31.682], "encode_mp4_s": 2.3, "text_encoder_s": 7.02, "audio_vae_decode_s": 81.14, "video_vae_decode_s": 109.94, "job_s": 484.55, "output_sha256": "c712b4989975c900c4872a581c5d06808f2776fddffbc1d7fcd605f6b59df103"}
+[06:31:08] DONE /dev/shm/pika/outputs/raj_r500.mp4
+[06:31:08] Job 2/6: raj_r250.mp4 t2va 5s seed=42 upscale->1664x960 refine_from=250
+[06:34:34] TIMINGS {"job_index": 2, "workflow": "t2va", "image": null, "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 0.0, "stage1_s": 31.56, "stage1_steps_s": [4.864, 4.628, 4.478, 4.656, 4.76, 4.745], "upscale_s": 9.23, "refine_s": 163.54, "refine_steps_s": [31.94, 31.707, 31.532], "encode_mp4_s": 2.06, "text_encoder_s": 4.2, "audio_vae_decode_s": 1.47, "video_vae_decode_s": 63.61, "job_s": 206.41, "output_sha256": "cb086a53f192aa2cd9a7112ba3e3259d8d9ffbbfb37d43fb93b14cf26eea0619"}
+[06:34:34] DONE /dev/shm/pika/outputs/raj_r250.mp4
+[06:34:34] Job 3/6: him_r500.mp4 t2va 5s seed=42 upscale->1664x960 refine_from=500
+[06:39:05] TIMINGS {"job_index": 3, "workflow": "t2va", "image": null, "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 500, "process_setup_s": 0.0, "stage1_s": 39.36, "stage1_steps_s": [12.272, 4.621, 4.681, 4.671, 4.7, 4.79], "upscale_s": 9.23, "refine_s": 219.5, "refine_steps_s": [50.591, 31.656, 31.793, 31.772], "encode_mp4_s": 2.39, "text_encoder_s": 3.93, "audio_vae_decode_s": 3.08, "video_vae_decode_s": 66.97, "job_s": 270.54, "output_sha256": "5239d84d1c00ec92d2e5d66bb3dbdb4bb688762eefcdde6e3d561aeaadc211e7"}
+[06:39:05] DONE /dev/shm/pika/outputs/him_r500.mp4
+[06:39:05] Job 4/6: him_r250.mp4 t2va 5s seed=42 upscale->1664x960 refine_from=250
+[06:43:39] TIMINGS {"job_index": 4, "workflow": "t2va", "image": null, "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 0.0, "stage1_s": 57.88, "stage1_steps_s": [5.301, 5.235, 5.203, 5.209, 5.22, 5.278], "upscale_s": 9.28, "refine_s": 205.31, "refine_steps_s": [32.468, 32.32, 32.136], "encode_mp4_s": 2.14, "text_encoder_s": 47.64, "audio_vae_decode_s": 4.0, "video_vae_decode_s": 80.29, "job_s": 274.69, "output_sha256": "2ab372b5bb4aed4b633aee430ac917cd5f61d5ce42a29b0fd009b66fe27d612b"}
+[06:43:39] DONE /dev/shm/pika/outputs/him_r250.mp4
+[06:43:39] Job 5/6: kerala_a.mp4 t2va 5s seed=42 upscale->1664x960 refine_from=500
+[06:48:57] TIMINGS {"job_index": 5, "workflow": "t2va", "image": null, "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 500, "process_setup_s": 0.0, "stage1_s": 57.76, "stage1_steps_s": [13.309, 5.245, 5.206, 5.148, 5.0, 5.172], "upscale_s": 9.28, "refine_s": 248.19, "refine_steps_s": [50.647, 32.323, 32.204, 32.167], "encode_mp4_s": 2.62, "text_encoder_s": 31.94, "audio_vae_decode_s": 3.35, "video_vae_decode_s": 81.4, "job_s": 317.93, "output_sha256": "d37d3b9d18203d5b5c44bff701f00a74591792b71867a59e71d2efaae478c65c"}
+[06:48:57] DONE /dev/shm/pika/outputs/kerala_a.mp4
+[06:48:57] Job 6/6: kerala_b.mp4 fl2va 5s seed=42 first_frame=kerala_a_last.png upscale->1664x960 refine_from=500
+Error in block: (denoiser, PikaH3FlexLoopDenoiser)
+Error details: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+Traceback:
+Traceback (most recent call last):
+RuntimeError: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+Error in block: (denoise, PikaH3FlexDenoiseStep)
+Error details: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+Traceback:
+Traceback (most recent call last):
+RuntimeError: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+Error in block: PikaH3FlexFL2VACoreDenoiseStep
+Error details: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+Traceback:
+Traceback (most recent call last):
+RuntimeError: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+Error in block: (denoise, PikaH3FlexAutoDenoiseStep)
+Error details: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+Traceback:
+Traceback (most recent call last):
+RuntimeError: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+Error in block: (PikaH3FlexBlocks):
+Traceback (most recent call last):
+RuntimeError: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+Traceback (most recent call last):
+RuntimeError: Error loading program 'SyncTensorsGraph.5021': Attempting to reserve 7.54G at the bottom of memory. That was not possible. There are 6.97G free, 0B reserved, and 6.97G reservable.
+06:53:21 STEP2 EXIT=0
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+QA raj_r500 frame-to-frame SSIM 0.945815
+QA raj_r250 frame-to-frame SSIM 0.939930
+QA him_r500 frame-to-frame SSIM 0.903786
+QA him_r250 frame-to-frame SSIM 0.904322
+QA kerala_a frame-to-frame SSIM 0.851941
+kerala_b.mp4: No such file or directory
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+kerala_b.mp4: No such file or directory
+06:53:44 JOIN EXIT=0
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+kerala_10s.mp4: No such file or directory
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+total 42M
+-rw-r--r-- 1 root root 1.3K Oct 31 06:53 him_r250.json
+-rw-r--r-- 1 root root 2.9M Oct 31 06:53 him_r250.mp4
+-rw-r--r-- 1 root root 2.1M Oct 31 06:53 him_r250_last.png
+-rw-r--r-- 1 root root 1.3K Oct 31 06:53 him_r500.json
+-rw-r--r-- 1 root root 2.9M Oct 31 06:53 him_r500.mp4
+-rw-r--r-- 1 root root 2.1M Oct 31 06:53 him_r500_last.png
+-rw-r--r-- 1 root root 905K Oct 30 22:44 himalaya_480p.mp4
+-rw-r--r-- 1 root root 3.6M Oct 30 22:44 himalaya_up2x_norefine.mp4
+-rw-r--r-- 1 root root 3.1M Oct 30 22:44 himalaya_up2x_refine.mp4
+-rw-r--r-- 1 root root  589 Oct 30 22:44 himalaya_upscale.json
+-rw-r--r-- 1 root root 1.4K Oct 31 06:53 kerala_a.json
+-rw-r--r-- 1 root root 5.4M Oct 31 06:53 kerala_a.mp4
+-rw-r--r-- 1 root root 2.4M Oct 31 06:54 kerala_a_last.png
+-rw-r--r-- 1 root root 490K Oct 31 06:54 qa_him_r250_crop.png
+-rw-r--r-- 1 root root 827K Oct 31 06:54 qa_him_r250_sheet.png
+-rw-r--r-- 1 root root 479K Oct 31 06:54 qa_him_r500_crop.png
+-rw-r--r-- 1 root root 829K Oct 31 06:54 qa_him_r500_sheet.png
+-rw-r--r-- 1 root root 605K Oct 31 06:54 qa_kerala_a_crop.png
+-rw-r--r-- 1 root root 1.1M Oct 31 06:54 qa_kerala_a_sheet.png
+-rw-r--r-- 1 root root 346K Oct 31 06:54 qa_raj_r250_crop.png
+-rw-r--r-- 1 root root 613K Oct 31 06:54 qa_raj_r250_sheet.png
+-rw-r--r-- 1 root root 330K Oct 31 06:54 qa_raj_r500_crop.png
+-rw-r--r-- 1 root root 572K Oct 31 06:54 qa_raj_r500_sheet.png
+-rw-r--r-- 1 root root 1.4K Oct 31 06:54 raj_r250.json
+-rw-r--r-- 1 root root 1.9M Oct 31 06:54 raj_r250.mp4
+-rw-r--r-- 1 root root 1.6M Oct 31 06:54 raj_r250_last.png
+-rw-r--r-- 1 root root 1.4K Oct 31 06:54 raj_r500.json
+-rw-r--r-- 1 root root 1.7M Oct 31 06:54 raj_r500.mp4
+-rw-r--r-- 1 root root 1.5M Oct 31 06:54 raj_r500_last.png
+-rw-r--r-- 1 root root 589K Oct 30 22:44 rajasthan_480p.mp4
+-rw-r--r-- 1 root root 2.0M Oct 30 22:44 rajasthan_up2x_norefine.mp4
+-rw-r--r-- 1 root root 1.7M Oct 30 22:44 rajasthan_up2x_refine.mp4
+-rw-r--r-- 1 root root  594 Oct 30 22:44 rajasthan_upscale.json
+STEP 3 done: files are in /data/pika/v6-latent-upscale/outputs
+06:54:04 STEP3 EXIT=0
+06:54:04 RUN DONE

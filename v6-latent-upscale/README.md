@@ -1,5 +1,8 @@
 # v6: Pika H3 Flex upscaled videos (1664x960) on Cloud TPU v6e-4
 
+> **Newer: [`../v7-auto-pipeline/`](../v7-auto-pipeline/)** packages this pipeline as one self-contained folder with
+> full instructions, preemption recovery, a status/cost command, loudness levelling and auto teardown.
+
 Real Pika H3 Flex text-to-video, **upscaled 2x to 1664x960** with the MiniMax H3 latent upscaler plus a short Pika
 refine pass, for long videos made of many clips. All video work runs on the TPU VM; your machine only sends
 commands and receives the finished files.

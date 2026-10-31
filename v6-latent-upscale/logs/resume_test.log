@@ -1,0 +1,5 @@
+[11:05:24] PIPELINE start: /tmp/rt_jobs.txt -> rt_final.mp4 on pika-europe-tpu (europe-west4-a), 3 clips, outputs -> /data/pika/v6-latent-upscale/outputs
+[11:05:24] PIPELINE run 1: 3 clip(s) to make
+[11:06:38] Job 1/3: rt01.mp4 t2va 5s seed=42 upscale->1664x960 refine_from=250
+[11:14:44] PIPELINE saved locally: rt01
+[11:14:23] Job 2/3: rt02.mp4 fl2va 5s seed=42 first_frame=rt01_last.png upscale->1664x960 refine_from=250

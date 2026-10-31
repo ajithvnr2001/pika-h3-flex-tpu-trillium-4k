@@ -1,0 +1,36 @@
+{
+  "job_index": 1,
+  "workflow": "t2va",
+  "prompt": "integrated_multimodal_description: A realistic cinematic medium close-up of a beautiful young Tamil woman in her late twenties standing outside a traditional South Indian house in a Tamil Nadu village. She looks directly at the camera and speaks naturally in native Tamil with authentic Tamil Nadu pronunciation, expressions and gestures. She says in Tamil: \"\u0b8e\u0ba9\u0bcd\u0ba9\u0b99\u0bcd\u0b95, \u0b87\u0ba9\u0bcd\u0ba9\u0bc8\u0b95\u0bcd\u0b95\u0bc1 \u0b8e\u0ba9\u0bcd\u0ba9 \u0b9a\u0bae\u0bc8\u0b95\u0bcd\u0b95\u0bb2\u0bbe\u0bae\u0bcd\u0ba9\u0bc1 \u0baf\u0bcb\u0b9a\u0bbf\u0b9a\u0bcd\u0b9a\u0bbf\u0b9f\u0bcd\u0b9f\u0bc1 \u0b87\u0bb0\u0bc1\u0b95\u0bcd\u0b95\u0bc7\u0ba9\u0bcd. \u0b89\u0b99\u0bcd\u0b95\u0bb3\u0bc1\u0b95\u0bcd\u0b95\u0bc1 \u0b8e\u0ba9\u0bcd\u0ba9 \u0b9a\u0bbe\u0baa\u0bcd\u0baa\u0bbf\u0b9f\u0ba3\u0bc1\u0bae\u0bcd\u0ba9\u0bc1 \u0b86\u0b9a\u0bc8?\" Her facial expressions are lively and natural, with perfectly synchronized Tamil lip movements. She wears a simple cotton saree, with her hair naturally braided. Warm morning sunlight, realistic skin texture, subtle background movement, cinematic photography, photorealistic, 35mm film look.\n\noverall_soundscape: Natural village morning ambience, birds chirping, distant people talking softly and gentle outdoor sounds. A clear female voice speaking native Tamil with authentic Tamil Nadu accent. No background music.\n\nnon_diegetic_music: None.",
+  "image": null,
+  "seed": 42,
+  "duration_s": 5,
+  "frames": 124,
+  "base": "832x480",
+  "output": "1664x960",
+  "upscale": 2.0,
+  "refine_from": 250,
+  "process_setup_s": 21.5,
+  "stage1_s": 145.53,
+  "stage1_steps_s": [
+    37.959,
+    4.601,
+    4.446,
+    4.831,
+    4.674,
+    4.51
+  ],
+  "upscale_s": 59.71,
+  "refine_s": 263.04,
+  "refine_steps_s": [
+    83.15,
+    32.878,
+    32.707
+  ],
+  "encode_mp4_s": 2.17,
+  "text_encoder_s": 7.5,
+  "audio_vae_decode_s": 79.89,
+  "video_vae_decode_s": 108.49,
+  "job_s": 470.48,
+  "output_sha256": "b7d7f02ed87b599fb458be4435c32507705e25613850da08b99526994af1ca6e"
+}

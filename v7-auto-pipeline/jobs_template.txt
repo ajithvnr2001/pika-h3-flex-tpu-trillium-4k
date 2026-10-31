@@ -1,0 +1,7 @@
+# My video: one clip per line, joined in this order. Lines starting with # are ignored.
+# <prompt.txt>          <name>    [seconds] [first frame: - | @earlier_name | image.png]  [refine_from=250|500] [seed=N]
+prompts/my/shot01.txt   shot01    5
+prompts/my/shot02.txt   shot02    5         @shot01
+prompts/my/shot03.txt   shot03    5         @shot02
+# new location -> start fresh (no @), repeat the character description in the prompt
+prompts/my/shot04.txt   shot04    5

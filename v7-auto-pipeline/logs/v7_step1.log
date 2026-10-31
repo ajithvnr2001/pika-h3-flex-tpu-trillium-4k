@@ -1,0 +1,14 @@
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+[12:15:35] 1/4 RAM disk
+[12:15:35] 2/4 System packages (ffmpeg)
+[12:15:35] 3/4 Python 3.12 venv with torch/torch_xla 2.9 and the pinned Pika stack
+torch 2.9.0+cpu | torch_xla 2.9.0 | diffusers 0.42.0.dev0 | transformers 5.15.0
+[12:15:39] 4/4 Model weights (only the t2va/fl2va parts, ~147 GB) into /dev/shm/pika/model
+[12:15:39] 5/5 Latent upscaler (LBH-123-AI/Minimax_h3_latent_Upscaler v1, bf16, 691 MB)
+[12:15:39] Bootstrap done
+STEP 1 done: pika-europe-tpu is ready.

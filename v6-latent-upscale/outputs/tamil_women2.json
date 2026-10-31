@@ -1,0 +1,36 @@
+{
+  "job_index": 2,
+  "workflow": "fl2va",
+  "prompt": "For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.\n\nintegrated_multimodal_description: [Shot 1] Continue the scene using the supplied image as the visual reference. Preserve the same house, lighting, environment and cinematic appearance. A second Tamil woman in her early thirties enters the frame, smiles and responds naturally to the first woman in native Tamil: \"\u0b85\u0ba4\u0bc6\u0bb2\u0bcd\u0bb2\u0bbe\u0bae\u0bcd \u0ba8\u0bc0\u0b99\u0bcd\u0b95 \u0b95\u0bb5\u0bb2\u0bc8\u0baa\u0bcd\u0baa\u0b9f\u0bbe\u0ba4\u0bc0\u0b99\u0bcd\u0b95. \u0b87\u0ba9\u0bcd\u0ba9\u0bc8\u0b95\u0bcd\u0b95\u0bc1 \u0ba8\u0bae\u0bcd\u0bae \u0bb5\u0bc0\u0b9f\u0bcd\u0b9f\u0bc1\u0bb2 \u0b9a\u0bc1\u0b9f\u0b9a\u0bcd\u0b9a\u0bc1\u0b9f \u0bae\u0bc0\u0ba9\u0bcd \u0b95\u0bc1\u0bb4\u0bae\u0bcd\u0baa\u0bc1\u0bae\u0bcd \u0b9a\u0bbe\u0ba4\u0bae\u0bc1\u0bae\u0bcd \u0b9a\u0bc6\u0b9e\u0bcd\u0b9a\u0bbf\u0b9f\u0bb2\u0bbe\u0bae\u0bcd!\" She speaks with authentic colloquial Tamil Nadu pronunciation, natural conversational rhythm and expressive facial movements. Ensure accurate Tamil lip synchronization. The first woman smiles and reacts naturally while listening. Photorealistic, cinematic camera movement, realistic human expressions, 35mm film look.\n\noverall_soundscape: Natural village ambience, subtle footsteps and two women speaking conversational Tamil with clear female voices. No artificial voice effects.\n\nnon_diegetic_music: None.",
+  "image": "/dev/shm/pika/outputs/tamil_women1_last.png",
+  "seed": 42,
+  "duration_s": 5,
+  "frames": 124,
+  "base": "832x480",
+  "output": "1664x960",
+  "upscale": 2.0,
+  "refine_from": 250,
+  "process_setup_s": 0.0,
+  "stage1_s": 142.92,
+  "stage1_steps_s": [
+    43.742,
+    43.507,
+    5.077,
+    4.947,
+    4.851,
+    5.012
+  ],
+  "upscale_s": 9.0,
+  "refine_s": 269.33,
+  "refine_steps_s": [
+    86.112,
+    36.692,
+    36.702
+  ],
+  "encode_mp4_s": 2.16,
+  "text_encoder_s": 23.38,
+  "audio_vae_decode_s": 1.51,
+  "video_vae_decode_s": 88.7,
+  "job_s": 423.44,
+  "output_sha256": "a8ae00a24b0f546ec4741a4b0b160300aa7fd89be4cc74d989a32e4f19bcf1b5"
+}

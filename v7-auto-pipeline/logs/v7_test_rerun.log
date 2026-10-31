@@ -1,0 +1,20 @@
+[12:49:53] PIPELINE start: jobs_v7_test.txt -> v7_test.mp4 on pika-europe-tpu (europe-west4-a), 2 clips, outputs -> /data/pika/v7-auto-pipeline/outputs
+[12:49:53] PIPELINE all clips are saved locally
+[12:50:13] PIPELINE joining on TPU
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+stream|codec_type=video|width=1664|height=960|nb_frames=247
+stream|codec_type=audio|nb_frames=324
+format|duration=10.327000
+Joined on TPU: /dev/shm/pika/outputs/v7_test.mp4 (run step 3 to copy it)
+[12:50:22] PIPELINE QA frames on TPU
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+QA v7test01 frame-to-frame SSIM 0.974969
+QA v7test02 frame-to-frame SSIM 0.980503
+QA v7_test frame-to-frame SSIM 0.977481
+[12:50:32] PIPELINE copying to /data/pika/v7-auto-pipeline/outputs
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+-rw-r--r-- 1 root root 4.8M Oct 31 12:50 /data/pika/v7-auto-pipeline/outputs/v7_test.mp4
+[12:50:43] PIPELINE DONE: /data/pika/v7-auto-pipeline/outputs/v7_test.mp4

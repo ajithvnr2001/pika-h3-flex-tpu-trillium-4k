@@ -1,0 +1,68 @@
+[12:15:40] PIPELINE start: jobs_v7_test.txt -> v7_test.mp4 on pika-europe-tpu (europe-west4-a), 2 clips, outputs -> /data/pika/v7-auto-pipeline/outputs
+[12:15:40] PIPELINE run 1: 2 clip(s) to make
+[12:16:47] Job 1/2: v7test01.mp4 t2va 5s seed=42 upscale->1664x960 refine_from=250
+[12:20:11] PIPELINE TPU is STOPPING: Spot preemption, will recreate and resume
+[12:20:11] PIPELINE run 2: 2 clip(s) to make
+[12:20:13] PIPELINE TPU pika-europe-tpu is STOPPING (preempted or not set up) -> recreating (SPOT=1)
+Creating Spot TPU pika-europe-tpu (v6e-4) in europe-west4-a ...
+Create request issued for: [pika-europe-tpu]
+Waiting for operation [projects/genai25th01/locations/europe-west4-a/operations/operation-1793449306613-65f21f4d7e6b9-09a73eab-37623e11] to complete...
+......................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................done.
+Created tpu [pika-europe-tpu].
+Propagating SSH public key to all TPU workers...
+........................................................done.
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Warning: Permanently added 'tpu.1421839533660192215-0-ovzswp' (ED25519) to the list of known hosts.
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+[12:27:05] 1/4 RAM disk
+[12:27:05] 2/4 System packages (ffmpeg)
+[12:27:44] 3/4 Python 3.12 venv with torch/torch_xla 2.9 and the pinned Pika stack
+ Downloaded cpython-3.12.16-linux-x86_64-gnu (download)
+Downloading torch (175.8MiB)
+ Downloaded setuptools
+ Downloaded torchvision
+ Downloaded networkx
+ Downloaded pillow
+ Downloaded sympy
+ Downloaded numpy
+ Downloaded torch
+ Downloaded pygments
+ Downloaded grpcio
+ Downloaded torch-xla
+ Downloaded libtpu
+ Downloaded tokenizers
+ Downloaded hf-xet
+ Downloaded pillow
+ Downloaded transformers
+ Downloaded numpy
+ Downloaded av
+ Downloaded jax
+ Downloaded scipy
+ Downloaded jaxlib
+torch 2.9.0+cpu | torch_xla 2.9.0 | diffusers 0.42.0.dev0 | transformers 5.15.0
+[12:28:09] 4/4 Model weights (only the t2va/fl2va parts, ~147 GB) into /dev/shm/pika/model
+[32m✓ Downloaded[0m
+Downloaded 146 GB in 41 s
+[12:28:50] 5/5 Latent upscaler (LBH-123-AI/Minimax_h3_latent_Upscaler v1, bf16, 691 MB)
+[32m✓ Downloaded[0m
+[12:28:52] Bootstrap done
+STEP 1 done: pika-europe-tpu is ready.
+[12:28:52] PIPELINE TPU pika-europe-tpu ready again
+[12:29:52] Job 1/2: v7test01.mp4 t2va 5s seed=42 upscale->1664x960 refine_from=250
+[12:39:01] PIPELINE saved locally: v7test01
+[12:37:36] Job 2/2: v7test02.mp4 fl2va 5s seed=42 first_frame=v7test01_last.png upscale->1664x960 refine_from=250
+[12:44:40] PIPELINE saved locally: v7test02
+[12:43:56] DONE /dev/shm/pika/outputs/v7test02.mp4
+[12:45:01] PIPELINE all clips are saved locally
+[12:45:22] PIPELINE joining on TPU
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+[Parsed_aresample_8 @ 0x5c2ca1934fc0] Cannot select channel layout for the link between filters Parsed_aresample_8 and format_out_0_1.
+Error reinitializing filters!
+Failed to inject frame into filter network: Invalid argument
+Error while processing the decoded data for stream #1:0
+[12:45:28] PIPELINE join failed

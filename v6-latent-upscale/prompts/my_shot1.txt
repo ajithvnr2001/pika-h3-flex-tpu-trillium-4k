@@ -1,0 +1,5 @@
+integrated_multimodal_description: A realistic cinematic medium close-up of a beautiful young Tamil woman in her late twenties standing outside a traditional South Indian house in a Tamil Nadu village. She looks directly at the camera and speaks naturally in native Tamil with authentic Tamil Nadu pronunciation, expressions and gestures. She says in Tamil: "என்னங்க, இன்னைக்கு என்ன சமைக்கலாம்னு யோசிச்சிட்டு இருக்கேன். உங்களுக்கு என்ன சாப்பிடணும்னு ஆசை?" Her facial expressions are lively and natural, with perfectly synchronized Tamil lip movements. She wears a simple cotton saree, with her hair naturally braided. Warm morning sunlight, realistic skin texture, subtle background movement, cinematic photography, photorealistic, 35mm film look.
+
+overall_soundscape: Natural village morning ambience, birds chirping, distant people talking softly and gentle outdoor sounds. A clear female voice speaking native Tamil with authentic Tamil Nadu accent. No background music.
+
+non_diegetic_music: None.

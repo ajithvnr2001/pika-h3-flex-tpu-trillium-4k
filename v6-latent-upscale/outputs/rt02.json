@@ -1,0 +1,36 @@
+{
+  "job_index": 1,
+  "workflow": "fl2va",
+  "prompt": "integrated_multimodal_description: Pixar-style 3D animated film, soft global illumination, warm saturated colors, rounded stylized shapes, expressive cartoon faces, smooth subsurface-scattered skin, detailed miniature-like set, gentle depth of field. Meena, a cheerful seven-year-old Indian girl with big brown eyes, two short braids tied with red ribbons, a yellow cotton frock; and Pip, a small round orange robot with big glowing blue eyes, one bendy antenna and tiny wheels. Close-up: Pip scans the torn kite with a beam of blue light from his eyes, then his antenna lights up like a bulb with an idea. Meena looks up hopefully.\noverall_soundscape: A whirring scan sound, a bright cheerful ding.\nnon_diegetic_music: Light whimsical orchestral score with flute and strings.",
+  "image": "/root/frame_rt02.png",
+  "seed": 42,
+  "duration_s": 5,
+  "frames": 124,
+  "base": "832x480",
+  "output": "1664x960",
+  "upscale": 2.0,
+  "refine_from": 250,
+  "process_setup_s": 19.72,
+  "stage1_s": 209.82,
+  "stage1_steps_s": [
+    37.032,
+    36.865,
+    4.901,
+    4.888,
+    5.075,
+    4.851
+  ],
+  "upscale_s": 60.38,
+  "refine_s": 283.77,
+  "refine_steps_s": [
+    84.759,
+    34.986,
+    34.747
+  ],
+  "encode_mp4_s": 2.1,
+  "text_encoder_s": 25.41,
+  "audio_vae_decode_s": 81.35,
+  "video_vae_decode_s": 108.43,
+  "job_s": 556.11,
+  "output_sha256": "362df3a7528ce28042e77b18a37510c45f8aff4f58f8eb4e378e8050a17872f4"
+}

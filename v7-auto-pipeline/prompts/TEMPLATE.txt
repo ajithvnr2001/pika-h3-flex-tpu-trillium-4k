@@ -1,0 +1,3 @@
+integrated_multimodal_description: <STYLE, e.g. "Pixar-style 3D animated film, soft global illumination, warm colors" or "Handheld documentary footage in overcast natural daylight">. <CHARACTERS, written the same way in every shot of the video>. <WHAT HAPPENS IN THIS SHOT and how the camera moves>.
+overall_soundscape: <ambient sounds, effects, who speaks and in which language>.
+non_diegetic_music: <music style, or None.>

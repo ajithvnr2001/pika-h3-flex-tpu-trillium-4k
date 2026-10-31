@@ -1,0 +1,13 @@
+# Pixar-style 1-minute test: 12 chained 5 s shots, upscaled to 1664x960
+prompts/pixar/shot01.txt pixar01 5
+prompts/pixar/shot02.txt pixar02 5 @pixar01
+prompts/pixar/shot03.txt pixar03 5 @pixar02
+prompts/pixar/shot04.txt pixar04 5 @pixar03
+prompts/pixar/shot05.txt pixar05 5 @pixar04
+prompts/pixar/shot06.txt pixar06 5 @pixar05
+prompts/pixar/shot07.txt pixar07 5 @pixar06
+prompts/pixar/shot08.txt pixar08 5 @pixar07
+prompts/pixar/shot09.txt pixar09 5 @pixar08
+prompts/pixar/shot10.txt pixar10 5 @pixar09
+prompts/pixar/shot11.txt pixar11 5 @pixar10
+prompts/pixar/shot12.txt pixar12 5 @pixar11

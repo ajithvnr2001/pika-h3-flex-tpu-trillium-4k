@@ -1,0 +1,3 @@
+integrated_multimodal_description: A cinematic wide shot of a traditional wooden Kerala houseboat with a curved thatched bamboo roof gliding slowly along calm green backwaters at golden hour. Tall coconut palms line both banks and their reflections ripple on the water. In the foreground a fisherman in a narrow wooden canoe paddles past, and a small flock of white egrets lifts off from the water's edge. The camera tracks smoothly alongside the houseboat as warm orange sunlight glints on the surface. Photorealistic, natural colors, 35mm film look.
+overall_soundscape: Gentle water lapping against the wooden hull, the soft splash of the canoe paddle, egret wings flapping and distant birdsong. No speech.
+non_diegetic_music: None.

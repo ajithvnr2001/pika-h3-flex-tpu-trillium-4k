@@ -1,0 +1,2 @@
+prompts/my_shot1.txt  tamil_women1  5
+prompts/my_shot2.txt  tamil_women2  5  @tamil_women1

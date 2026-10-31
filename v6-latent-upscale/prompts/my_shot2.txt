@@ -1,0 +1,7 @@
+For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.
+
+integrated_multimodal_description: [Shot 1] Continue the scene using the supplied image as the visual reference. Preserve the same house, lighting, environment and cinematic appearance. A second Tamil woman in her early thirties enters the frame, smiles and responds naturally to the first woman in native Tamil: "அதெல்லாம் நீங்க கவலைப்படாதீங்க. இன்னைக்கு நம்ம வீட்டுல சுடச்சுட மீன் குழம்பும் சாதமும் செஞ்சிடலாம்!" She speaks with authentic colloquial Tamil Nadu pronunciation, natural conversational rhythm and expressive facial movements. Ensure accurate Tamil lip synchronization. The first woman smiles and reacts naturally while listening. Photorealistic, cinematic camera movement, realistic human expressions, 35mm film look.
+
+overall_soundscape: Natural village ambience, subtle footsteps and two women speaking conversational Tamil with clear female voices. No artificial voice effects.
+
+non_diegetic_music: None.

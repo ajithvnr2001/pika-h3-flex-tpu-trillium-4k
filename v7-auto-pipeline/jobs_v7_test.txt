@@ -1,0 +1,3 @@
+# v7 end-to-end test: 2 linked Pixar shots
+prompts/pixar/shot01.txt v7test01 5
+prompts/pixar/shot02.txt v7test02 5 @v7test01

@@ -1,0 +1,36 @@
+{
+  "job_index": 12,
+  "workflow": "fl2va",
+  "prompt": "integrated_multimodal_description: Pixar-style 3D animated film, soft global illumination, warm saturated colors, rounded stylized shapes, expressive cartoon faces, smooth subsurface-scattered skin, detailed miniature-like set, gentle depth of field. Meena, a cheerful seven-year-old Indian girl with big brown eyes, two short braids tied with red ribbons, a yellow cotton frock; and Pip, a small round orange robot with big glowing blue eyes, one bendy antenna and tiny wheels. Wide shot: the two small silhouettes on the hill with the kite against the glowing sunset sky, the village lights twinkling below; slow camera pull back.\noverall_soundscape: Gentle closing music swelling and fading out, distant evening birds.\nnon_diegetic_music: Light whimsical orchestral score with flute and strings.",
+  "image": "/dev/shm/pika/outputs/pixar11_last.png",
+  "seed": 42,
+  "duration_s": 5,
+  "frames": 124,
+  "base": "832x480",
+  "output": "1664x960",
+  "upscale": 2.0,
+  "refine_from": 250,
+  "process_setup_s": 0.0,
+  "stage1_s": 52.44,
+  "stage1_steps_s": [
+    12.983,
+    13.16,
+    5.04,
+    4.931,
+    4.852,
+    5.022
+  ],
+  "upscale_s": 9.02,
+  "refine_s": 208.1,
+  "refine_steps_s": [
+    55.257,
+    34.866,
+    34.876
+  ],
+  "encode_mp4_s": 2.54,
+  "text_encoder_s": 22.07,
+  "audio_vae_decode_s": 1.23,
+  "video_vae_decode_s": 62.6,
+  "job_s": 272.15,
+  "output_sha256": "ed7e2d05488a8bfd27be5adc68affb90d90ad74f7ee56a45d91fe3fcb6ec0940"
+}

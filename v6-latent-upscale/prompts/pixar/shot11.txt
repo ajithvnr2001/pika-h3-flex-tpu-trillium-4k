@@ -1,0 +1,3 @@
+integrated_multimodal_description: Pixar-style 3D animated film, soft global illumination, warm saturated colors, rounded stylized shapes, expressive cartoon faces, smooth subsurface-scattered skin, detailed miniature-like set, gentle depth of field. Meena, a cheerful seven-year-old Indian girl with big brown eyes, two short braids tied with red ribbons, a yellow cotton frock; and Pip, a small round orange robot with big glowing blue eyes, one bendy antenna and tiny wheels. Golden sunset over the hilltop: Meena and Pip sit side by side, the red kite dancing against an orange sky, Meena leaning her head on Pip.
+overall_soundscape: Evening crickets, soft warm music.
+non_diegetic_music: Light whimsical orchestral score with flute and strings.

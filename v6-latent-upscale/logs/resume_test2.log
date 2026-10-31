@@ -1,0 +1,31 @@
+[11:20:03] PIPELINE start: /tmp/rt_jobs.txt -> rt_final.mp4 on pika-europe-tpu (europe-west4-a), 3 clips, outputs -> /data/pika/v6-latent-upscale/outputs
+[11:20:03] PIPELINE run 1: 2 clip(s) to make
+[11:21:14] Job 1/2: rt02.mp4 fl2va 5s seed=42 first_frame=frame_rt02.png upscale->1664x960 refine_from=250
+[11:23:31] PIPELINE generation failed but TPU is READY (rc=died); retry 1/2, see ~/run_batch.log on the TPU
+[11:23:31] PIPELINE run 2: 2 clip(s) to make
+[11:24:43] Job 1/2: rt02.mp4 fl2va 5s seed=42 first_frame=frame_rt02.png upscale->1664x960 refine_from=250
+[11:34:32] PIPELINE saved locally: rt02
+[11:33:59] Job 2/2: rt03.mp4 fl2va 5s seed=42 first_frame=rt02_last.png upscale->1664x960 refine_from=250
+[11:39:06] PIPELINE saved locally: rt03
+[11:38:27] DONE /dev/shm/pika/outputs/rt03.mp4
+[11:39:27] PIPELINE all clips are saved locally
+[11:39:41] PIPELINE uploading rt01.mp4 back to the TPU for the join
+[11:40:06] PIPELINE joining on TPU
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+stream|codec_type=video|width=1664|height=960|nb_frames=371
+stream|codec_type=audio|nb_frames=485
+format|duration=15.469000
+Joined on TPU: /dev/shm/pika/outputs/rt_final.mp4 (run step 3 to copy it)
+[11:40:16] PIPELINE QA frames on TPU
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+QA rt01 frame-to-frame SSIM 0.974969
+QA rt02 frame-to-frame SSIM 0.980503
+QA rt03 frame-to-frame SSIM 0.953703
+QA rt_final frame-to-frame SSIM 0.969482
+[11:40:26] PIPELINE copying to /data/pika/v6-latent-upscale/outputs
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+-rw-r--r-- 1 root root 8.8M Oct 31 11:41 /data/pika/v6-latent-upscale/outputs/rt_final.mp4
+[11:41:17] PIPELINE DONE: /data/pika/v6-latent-upscale/outputs/rt_final.mp4

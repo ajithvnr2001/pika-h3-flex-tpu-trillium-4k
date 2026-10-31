@@ -5,8 +5,100 @@ refine pass, for long videos made of many clips. All video work runs on the TPU 
 commands and receives the finished files.
 
 Tested 2026-10-31 on a Spot TPU v6e-4 (europe-west4-a): 6 clips, an extension chain and a join, all successful.
+Also tested: a **1-minute Pixar-style video made by the automated pipeline** (12 clips, 62 min) and **resuming after a
+cutoff** (resumed clips are byte-identical to an uninterrupted run).
 
-## Commands
+## Easiest way: one automated command (recommended for long videos)
+
+```bash
+cd /data/pika/v6-latent-upscale
+. /root/.secrets/pika.env                      # or: export HF_TOKEN=hf_...  (needed if the TPU must be recreated)
+export TPU=pika-europe-tpu ZONE=europe-west4-a  # your TPU name and zone
+
+# once per TPU: install + download model and upscaler (~7 min)
+commands/1_spin_up_spot_tpu.sh
+
+# make the whole video: all clips -> join -> QA -> copy to ./outputs. Runs in the background.
+nohup commands/6_auto_pipeline.sh jobs_pixar_1min.txt pixar_1min > logs/pixar_1min.log 2>&1 &
+tail -f logs/pixar_1min.log        # Ctrl+C stops watching, not the pipeline
+
+# when finished (or whenever you want to stop paying):
+commands/4_tear_down_tpu.sh
+```
+
+The log shows one line per clip (`Job 3/12 ...`, `PIPELINE saved locally: pixar03`) and ends with
+`PIPELINE DONE: .../outputs/pixar_1min.mp4`. Each finished clip is already in `outputs/` while the rest are made.
+
+### What if the Spot TPU is taken away (preempted) in the middle?
+
+Spot TPUs are cheaper ($7.13/h vs $11.88/h for a v6e-4) but Google can reclaim them at any time; we were preempted
+about 5 times during this project. `6_auto_pipeline.sh` handles it without you doing anything:
+
+1. **Finished clips are saved off the TPU right away.** The generator runs detached on the TPU; every 60 s the script
+   copies each finished clip (`<name>.mp4`, `<name>_last.png`, `<name>.json`) to `outputs/` on your machine. The TPU's
+   own disk is lost when it is preempted, your local copy is not.
+2. **It notices the cutoff.** When the run stops, it checks the TPU state. Gone / `PREEMPTED` / not `READY` means
+   preemption.
+3. **It gets a new TPU.** It deletes the dead one and runs step 1 again (create + install + download, ~8 min). If
+   there is no capacity it waits 5 min and tries again; after 3 failed Spot tries it switches to an on-demand TPU
+   (`ONDEMAND_AFTER=0` to stay on Spot only, `ONDEMAND_AFTER=5` to wait longer).
+4. **It continues where it stopped.** Only clips missing from `outputs/` are made. If the next clip continues an
+   earlier one (`@pixar05`), it is given the saved `outputs/pixar05_last.png`, so the story continues exactly.
+5. **Join on the new TPU.** Clips made on the old TPU are uploaded back to the TPU, then joined there as usual.
+
+Cost of one preemption: the clip that was in progress (up to ~4.5 min) + new TPU setup (~8 min) + the first-clip
+compile again (~3 min), so about 15 min. Nothing that was finished is redone.
+
+Other cases:
+- **Your own machine reboots / you close the terminal:** run the same `6_auto_pipeline.sh` command again. Finished
+  clips in `outputs/` are skipped. (If the TPU is still running it kills the old run and continues.)
+- **A real error on a healthy TPU** (bad prompt file, out of memory): it retries once, then stops with
+  `FAILED twice on a healthy TPU`. Read the error on the TPU with
+  `gcloud compute tpus tpu-vm ssh $TPU --zone=$ZONE --command "tail -30 ~/run_batch.log"`, fix it, rerun.
+- **Gives up** after `MAX_ATTEMPTS` (default 10) generation runs. Rerunning resumes.
+- **Want a fresh start of a clip?** delete its files from `outputs/` (`rm outputs/pixar07*`) and rerun.
+
+How it was tested: a 3-clip chain, the generator killed in the middle of clip 2 twice and the TPU's outputs and frame
+files deleted (what a new TPU looks like). The pipeline retried, made clips 2-3 from the saved local frame, uploaded
+clip 1 back, joined and copied the result (`logs/resume_test2.log`). The three clips' SHA-256 equal those of the
+uninterrupted Pixar run. The "TPU deleted by Google" branch reuses step 1, which is the same command used to recreate
+TPUs throughout this project, but an actual preemption did not happen during this test.
+
+### Pixar-style 1-minute test (`jobs_pixar_1min.txt`, `prompts/pixar/`)
+
+12 linked 5 s shots (a girl, a small robot and a red kite), each `@` the previous one, upscaled to 1664x960.
+Result: `outputs/pixar_1min.mp4`, 61.75 s, 1482 frames, with audio. Overview: `frames/production/pixar_1min_story.png`.
+
+| Stage | Time |
+| --- | ---: |
+| Upload + model load | 2 min 01 s |
+| Clip 1 (includes compiles) | 7 min 48 s |
+| Clip 2 (first image-start clip, compiles once) | 6 min 19 s |
+| Clips 3-12 | 3 min 53 s - 4 min 31 s each (avg ~4.4 min) |
+| Join + QA + copy | 1 min 43 s |
+| **Total** | **61 min 45 s** (~$7.30 on Spot) |
+
+Rule of thumb: **~1 min of TPU time per 1 s of upscaled video** (5 min video ~4.5 h, 10 min ~9 h).
+
+What it showed: strong Pixar look and the same two characters for the whole minute. Because every shot starts from
+the previous last frame, things carry over: the robot's "idea" light bulb from shot 2 stayed on its head for the rest
+of the video, and the hilltop scenes drifted back to the village lane. Tips:
+- Start a shot fresh (no `@`) when the place changes (new location, sunset), and repeat the character descriptions.
+- Don't add props you want gone later, or say in the next prompt that they are gone.
+- The soundtrack is quiet (mean -37 dB); raise it when editing if needed.
+
+### Prompt tips for realistic people
+
+Tested face crops 480p vs upscaled (`frames/production/face_*`):
+- Words like "beautiful", "cinematic", "photorealistic", "35mm film look", "realistic skin texture",
+  "looks directly at the camera" give an airbrushed, glamour/advert face. The upscaler then makes it sharper and
+  glossier but does not cause it.
+- "visible skin pores, small blemishes, uneven skin tone" over-shoots: bumpy patches on the cheeks.
+- Best (`prompts/natural_woman_v2.txt`): "handheld documentary footage, overcast natural daylight, ordinary ...,
+  no makeup, natural plain complexion, talks to someone just off-camera, glancing away and back, muted natural
+  colors, documentary realism". The upscale then adds real detail (hair, cloth, roof tiles) to a natural face.
+
+## Commands (step by step)
 
 ```bash
 cd /data/pika/v6-latent-upscale
@@ -98,11 +190,14 @@ Other details:
 
 | File | Purpose |
 | --- | --- |
+| `commands/6_auto_pipeline.sh` | Whole video in one command; saves clips as they finish; survives Spot preemption |
 | `commands/0_get_tpu.sh` | Find capacity in any zone or queue a request |
 | `commands/1_spin_up_spot_tpu.sh` | Install + download on the TPU |
-| `commands/2_generate_batch.sh`, `2_generate_video.sh` | Generate clips (upscaled by default) |
+| `commands/2_generate_batch.sh`, `2_generate_video.sh` | Generate clips (upscaled by default; `DETACH=1` = run detached on the TPU) |
 | `commands/5_join_on_tpu.sh` | Join clips on the TPU |
-| `commands/3_save_to_data_pika.sh`, `4_tear_down_tpu.sh` | Copy results, delete the TPU |
+| `commands/3_save_to_data_pika.sh`, `4_tear_down_tpu.sh` | Copy results (incl. subfolders), delete the TPU |
+| `jobs_pixar_1min.txt`, `prompts/pixar/` | The 1-minute Pixar test |
+| `prompts/natural_woman_v2.txt` | Realistic-person prompt template |
 | `scripts/generate_pika_tpu.py` | Generator (`--upscale`, `--refine-from`, `--seq-bucket`, `--keep-base`, jobs with `@name`) |
 | `scripts/latent_upscaler.py` | Upscaler model |
 | `scripts/qa_frames.sh` | Quality sheets / crops / SSIM, runs on the TPU |
@@ -111,5 +206,6 @@ Other details:
 ## Limits
 
 - Refine re-draws small details relative to the 480p draft (more with `refine_from=500`).
-- TPU capacity: v6e-4 is often full; Spot can be preempted (rerun steps 1-2 for missing clips).
+- TPU capacity: v6e-4 is often full; Spot can be preempted (`6_auto_pipeline.sh` resumes automatically; with the
+  step-by-step commands, rerun steps 1-2 for missing clips).
 - Clips are generated one after another; using idle chip time for the next clip (overlap) is not implemented.

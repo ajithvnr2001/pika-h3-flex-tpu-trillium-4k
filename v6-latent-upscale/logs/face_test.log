@@ -1,0 +1,29 @@
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+[08:11:57] 2 job(s); base 832x480, upscale 2.0x -> 1664x960
+[ERROR] `min_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[ERROR] `max_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[08:11:59] Components + FL2VA adapter loaded in 2.8s
+[08:12:05] TPU devices: ['xla:0', 'xla:1', 'xla:2', 'xla:3']
+[08:12:14] Transformer weights moved to TPU in 9.0s; blocks per chip: xla:0=0-13, xla:1=14-27, xla:2=28-40, xla:3=41-49
+[08:12:15] video VAE decoder -> xla:3
+[08:12:15] video VAE encoder (first-frame conditioning) -> xla:2
+[08:12:16] audio VAE -> xla:2
+[08:12:17] latent upscaler -> xla:1
+[08:12:17] Job 1/2: orig_prompt.mp4 t2va 5s seed=42 upscale->1664x960 refine_from=250
+[08:13:02]   denoise step 1: transformer forward 38.08s
+[08:18:15]   denoise step 1: transformer forward 82.79s
+[08:20:30] TIMINGS {"job_index": 1, "workflow": "t2va", "image": null, "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 20.73, "stage1_s": 211.15, "stage1_steps_s": [38.077, 4.619, 4.551, 4.723, 4.473, 4.581], "upscale_s": 60.2, "refine_s": 218.07, "refine_steps_s": [82.788, 32.731, 32.91], "encode_mp4_s": 2.19, "text_encoder_s": 9.06, "video_vae_decode_s": 125.79, "audio_vae_decode_s": 81.98, "job_s": 492.49, "output_sha256": "b7d7f02ed87b599fb458be4435c32507705e25613850da08b99526994af1ca6e"}
+[08:20:30] DONE /dev/shm/pika/outputs/orig_prompt.mp4
+[08:20:30] Job 2/2: natural_prompt.mp4 t2va 5s seed=42 upscale->1664x960 refine_from=250
+[08:25:09] TIMINGS {"job_index": 2, "workflow": "t2va", "image": null, "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 0.0, "stage1_s": 55.65, "stage1_steps_s": [12.584, 4.553, 4.763, 4.599, 4.624, 4.639], "upscale_s": 9.0, "refine_s": 211.58, "refine_steps_s": [79.467, 31.543, 31.762], "encode_mp4_s": 2.22, "text_encoder_s": 4.12, "video_vae_decode_s": 80.15, "audio_vae_decode_s": 1.22, "job_s": 279.24, "output_sha256": "b6255b14ef7752a768376cb0e0c5b9c6fc02dcd69aff7cac883c038751e10f98"}
+[08:25:09] DONE /dev/shm/pika/outputs/natural_prompt.mp4
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+STEP 2 done

@@ -1,0 +1,110 @@
+[09:22:12] PIPELINE start: jobs_pixar_1min.txt -> pixar_1min.mp4 on pika-europe-tpu (europe-west4-a)
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+[09:23:53] 12 job(s); base 832x480, upscale 2.0x -> 1664x960
+[ERROR] `min_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[ERROR] `max_frames` is part of Qwen3VLVideoProcessorInitKwargs, but not documented. Make sure to add it to the docstring of the function in /root/pika-venv/lib/python3.12/site-packages/transformers/models/qwen3_vl/video_processing_qwen3_vl.py.
+[09:23:56] Components + FL2VA adapter loaded in 2.8s
+[09:24:01] TPU devices: ['xla:0', 'xla:1', 'xla:2', 'xla:3']
+[09:24:11] Transformer weights moved to TPU in 9.3s; blocks per chip: xla:0=0-13, xla:1=14-27, xla:2=28-40, xla:3=41-49
+[09:24:11] video VAE decoder -> xla:3
+[09:24:11] video VAE encoder (first-frame conditioning) -> xla:2
+[09:24:12] audio VAE -> xla:2
+[09:24:13] latent upscaler -> xla:1
+[09:24:13] Job 1/12: pixar01.mp4 t2va 5s seed=42 upscale->1664x960 refine_from=250
+[09:24:56]   denoise step 1: transformer forward 37.90s
+[09:29:03]   denoise step 1: transformer forward 81.46s
+[09:32:01] TIMINGS {"job_index": 1, "workflow": "t2va", "image": null, "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 20.36, "stage1_s": 146.17, "stage1_steps_s": [37.902, 4.831, 4.593, 4.517, 4.756, 4.669], "upscale_s": 60.26, "refine_s": 259.37, "refine_steps_s": [81.458, 31.845, 31.508], "encode_mp4_s": 2.12, "text_encoder_s": 6.83, "audio_vae_decode_s": 80.27, "video_vae_decode_s": 109.53, "job_s": 467.94, "output_sha256": "3d1b42106ec4ab44ef92ec330c63ed525e534ed66e77fd88e439151fed0f70f6"}
+[09:32:01] DONE /dev/shm/pika/outputs/pixar01.mp4
+[09:32:01] Job 2/12: pixar02.mp4 fl2va 5s seed=42 first_frame=pixar01_last.png upscale->1664x960 refine_from=250
+[09:33:14]   denoise step 1: transformer forward 38.77s
+[09:33:53]   denoise step 2: transformer forward 38.56s
+[09:38:20] TIMINGS {"job_index": 2, "workflow": "fl2va", "image": "/dev/shm/pika/outputs/pixar01_last.png", "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 0.0, "stage1_s": 132.74, "stage1_steps_s": [38.775, 38.562, 4.971, 5.056, 4.797, 4.866], "upscale_s": 9.0, "refine_s": 235.47, "refine_steps_s": [81.803, 34.744, 34.67], "encode_mp4_s": 1.88, "text_encoder_s": 22.62, "audio_vae_decode_s": 1.31, "video_vae_decode_s": 64.22, "job_s": 379.11, "output_sha256": "362df3a7528ce28042e77b18a37510c45f8aff4f58f8eb4e378e8050a17872f4"}
+[09:38:20] DONE /dev/shm/pika/outputs/pixar02.mp4
+[09:38:20] Job 3/12: pixar03.mp4 fl2va 5s seed=42 first_frame=pixar02_last.png upscale->1664x960 refine_from=250
+[09:42:50] TIMINGS {"job_index": 3, "workflow": "fl2va", "image": "/dev/shm/pika/outputs/pixar02_last.png", "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 0.0, "stage1_s": 52.24, "stage1_steps_s": [12.935, 12.667, 4.895, 4.976, 4.994, 5.102], "upscale_s": 9.0, "refine_s": 206.22, "refine_steps_s": [53.587, 34.858, 34.698], "encode_mp4_s": 1.97, "text_encoder_s": 21.92, "audio_vae_decode_s": 1.35, "video_vae_decode_s": 62.7, "job_s": 269.46, "output_sha256": "f5b8fe6103637733996978d11a1a797b57e88eab1b23dae0353ab2a9e8b956e2"}
+[09:42:50] DONE /dev/shm/pika/outputs/pixar03.mp4
+[09:42:50] Job 4/12: pixar04.mp4 fl2va 5s seed=42 first_frame=pixar03_last.png upscale->1664x960 refine_from=250
+[09:47:19] TIMINGS {"job_index": 4, "workflow": "fl2va", "image": "/dev/shm/pika/outputs/pixar03_last.png", "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 0.0, "stage1_s": 52.31, "stage1_steps_s": [12.5, 13.001, 4.931, 4.882, 5.073, 5.117], "upscale_s": 9.0, "refine_s": 205.93, "refine_steps_s": [52.58, 34.773, 34.813], "encode_mp4_s": 2.07, "text_encoder_s": 21.57, "audio_vae_decode_s": 1.31, "video_vae_decode_s": 63.45, "job_s": 269.34, "output_sha256": "cf9d6116ed1132162f496b7ef7b4b1acda503f039f0f85e8bf1054930645e046"}
+[09:47:19] DONE /dev/shm/pika/outputs/pixar04.mp4
+[09:47:19] Job 5/12: pixar05.mp4 fl2va 5s seed=42 first_frame=pixar04_last.png upscale->1664x960 refine_from=250
+[09:51:15] TIMINGS {"job_index": 5, "workflow": "fl2va", "image": "/dev/shm/pika/outputs/pixar04_last.png", "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 0.0, "stage1_s": 36.65, "stage1_steps_s": [4.859, 4.839, 5.138, 4.957, 4.95, 4.84], "upscale_s": 9.0, "refine_s": 187.19, "refine_steps_s": [34.571, 34.819, 34.713], "encode_mp4_s": 2.66, "text_encoder_s": 21.8, "audio_vae_decode_s": 1.5, "video_vae_decode_s": 63.03, "job_s": 235.53, "output_sha256": "946d4d843026751fe9070f297597a5e4d58c1b11036c3e35265107743bdadff9"}
+[09:51:15] DONE /dev/shm/pika/outputs/pixar05.mp4
+[09:51:15] Job 6/12: pixar06.mp4 fl2va 5s seed=42 first_frame=pixar05_last.png upscale->1664x960 refine_from=250
+[09:55:46] TIMINGS {"job_index": 6, "workflow": "fl2va", "image": "/dev/shm/pika/outputs/pixar05_last.png", "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 0.0, "stage1_s": 52.28, "stage1_steps_s": [13.148, 13.168, 4.827, 4.868, 4.994, 4.747], "upscale_s": 9.0, "refine_s": 207.33, "refine_steps_s": [54.232, 34.849, 34.901], "encode_mp4_s": 2.65, "text_encoder_s": 22.0, "audio_vae_decode_s": 1.25, "video_vae_decode_s": 62.59, "job_s": 271.3, "output_sha256": "459f1522d1563467c670a318640b6e969f2af0eb34f47a97581525e124b8c6f6"}
+[09:55:46] DONE /dev/shm/pika/outputs/pixar06.mp4
+[09:55:46] Job 7/12: pixar07.mp4 fl2va 5s seed=42 first_frame=pixar06_last.png upscale->1664x960 refine_from=250
+[10:00:17] TIMINGS {"job_index": 7, "workflow": "fl2va", "image": "/dev/shm/pika/outputs/pixar06_last.png", "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 0.0, "stage1_s": 52.37, "stage1_steps_s": [12.847, 13.006, 4.78, 5.031, 4.915, 5.061], "upscale_s": 9.0, "refine_s": 207.53, "refine_steps_s": [54.313, 34.611, 34.658], "encode_mp4_s": 2.52, "text_encoder_s": 22.45, "audio_vae_decode_s": 1.31, "video_vae_decode_s": 63.18, "job_s": 271.44, "output_sha256": "140cdc2d1bdb79d38b84663651ff218c278556f64ab97b37b3225eeada7cf579"}
+[10:00:17] DONE /dev/shm/pika/outputs/pixar07.mp4
+[10:00:17] Job 8/12: pixar08.mp4 fl2va 5s seed=42 first_frame=pixar07_last.png upscale->1664x960 refine_from=250
+[10:04:48] TIMINGS {"job_index": 8, "workflow": "fl2va", "image": "/dev/shm/pika/outputs/pixar07_last.png", "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 0.0, "stage1_s": 52.01, "stage1_steps_s": [13.018, 12.818, 4.816, 4.988, 4.99, 4.913], "upscale_s": 9.0, "refine_s": 207.25, "refine_steps_s": [54.724, 34.822, 34.705], "encode_mp4_s": 1.93, "text_encoder_s": 22.04, "audio_vae_decode_s": 1.12, "video_vae_decode_s": 62.65, "job_s": 270.21, "output_sha256": "6d58d5be7ae26e690de5f900e2dea1f52dc9958934cacc113c7aa6f51d20f4e1"}
+[10:04:48] DONE /dev/shm/pika/outputs/pixar08.mp4
+[10:04:48] Job 9/12: pixar09.mp4 fl2va 5s seed=42 first_frame=pixar08_last.png upscale->1664x960 refine_from=250
+[10:09:18] TIMINGS {"job_index": 9, "workflow": "fl2va", "image": "/dev/shm/pika/outputs/pixar08_last.png", "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 0.0, "stage1_s": 52.16, "stage1_steps_s": [13.09, 13.064, 4.743, 4.859, 4.882, 5.013], "upscale_s": 9.0, "refine_s": 206.64, "refine_steps_s": [53.979, 34.616, 34.778], "encode_mp4_s": 2.39, "text_encoder_s": 21.3, "audio_vae_decode_s": 1.41, "video_vae_decode_s": 62.41, "job_s": 270.22, "output_sha256": "c11036e40ab904e15e2d71aead1882f3eb9d5b7fa86fcf73dacec3bfebae1f76"}
+[10:09:18] DONE /dev/shm/pika/outputs/pixar09.mp4
+[10:09:18] Job 10/12: pixar10.mp4 fl2va 5s seed=42 first_frame=pixar09_last.png upscale->1664x960 refine_from=250
+[10:13:49] TIMINGS {"job_index": 10, "workflow": "fl2va", "image": "/dev/shm/pika/outputs/pixar09_last.png", "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 0.0, "stage1_s": 52.62, "stage1_steps_s": [12.913, 12.903, 4.863, 4.981, 4.894, 4.931], "upscale_s": 9.01, "refine_s": 207.1, "refine_steps_s": [54.564, 34.952, 34.851], "encode_mp4_s": 1.91, "text_encoder_s": 22.25, "audio_vae_decode_s": 1.43, "video_vae_decode_s": 62.44, "job_s": 270.67, "output_sha256": "53b12672c65255688791ce4dc8f684f7c1380d479aa2f0441250daab1ff339b9"}
+[10:13:49] DONE /dev/shm/pika/outputs/pixar10.mp4
+[10:13:49] Job 11/12: pixar11.mp4 fl2va 5s seed=42 first_frame=pixar10_last.png upscale->1664x960 refine_from=250
+[10:17:42] TIMINGS {"job_index": 11, "workflow": "fl2va", "image": "/dev/shm/pika/outputs/pixar10_last.png", "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 0.0, "stage1_s": 36.03, "stage1_steps_s": [4.853, 4.83, 5.037, 5.0, 4.902, 5.025], "upscale_s": 9.0, "refine_s": 186.1, "refine_steps_s": [34.832, 34.948, 34.813], "encode_mp4_s": 1.98, "text_encoder_s": 20.74, "audio_vae_decode_s": 1.18, "video_vae_decode_s": 62.27, "job_s": 233.13, "output_sha256": "10a2829d698f53018f052412448bb743c9eeba694693779c07dedbb08457fa95"}
+[10:17:42] DONE /dev/shm/pika/outputs/pixar11.mp4
+[10:17:42] Job 12/12: pixar12.mp4 fl2va 5s seed=42 first_frame=pixar11_last.png upscale->1664x960 refine_from=250
+[10:22:14] TIMINGS {"job_index": 12, "workflow": "fl2va", "image": "/dev/shm/pika/outputs/pixar11_last.png", "seed": 42, "duration_s": 5, "frames": 124, "base": "832x480", "output": "1664x960", "upscale": 2.0, "refine_from": 250, "process_setup_s": 0.0, "stage1_s": 52.44, "stage1_steps_s": [12.983, 13.16, 5.04, 4.931, 4.852, 5.022], "upscale_s": 9.02, "refine_s": 208.1, "refine_steps_s": [55.257, 34.866, 34.876], "encode_mp4_s": 2.54, "text_encoder_s": 22.07, "audio_vae_decode_s": 1.23, "video_vae_decode_s": 62.6, "job_s": 272.15, "output_sha256": "ed7e2d05488a8bfd27be5adc68affb90d90ad74f7ee56a45d91fe3fcb6ec0940"}
+[10:22:14] DONE /dev/shm/pika/outputs/pixar12.mp4
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+STEP 2 done
+[10:22:31] PIPELINE clips done, joining on TPU
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+stream|codec_type=video|width=1664|height=960|nb_frames=1482
+stream|codec_type=audio|nb_frames=1931
+format|duration=61.750000
+Joined on TPU: /dev/shm/pika/outputs/pixar_1min.mp4 (run step 3 to copy it)
+[10:22:52] PIPELINE QA frames on TPU
+Using ssh batch size of 1. Attempting to SSH into 1 nodes with a total of 1 workers.
+SSH: Attempting to connect to worker 0...
+QA pixar01 frame-to-frame SSIM 0.974969
+QA pixar02 frame-to-frame SSIM 0.980503
+QA pixar03 frame-to-frame SSIM 0.953703
+QA pixar04 frame-to-frame SSIM 0.916853
+QA pixar05 frame-to-frame SSIM 0.672539
+QA pixar06 frame-to-frame SSIM 0.724470
+QA pixar07 frame-to-frame SSIM 0.832149
+QA pixar08 frame-to-frame SSIM 0.921744
+QA pixar09 frame-to-frame SSIM 0.864402
+QA pixar10 frame-to-frame SSIM 0.958608
+QA pixar11 frame-to-frame SSIM 0.911962
+QA pixar12 frame-to-frame SSIM 0.786550
+QA pixar_1min frame-to-frame SSIM 0.874625
+[10:23:12] PIPELINE copying to /data/pika/v6-latent-upscale/outputs
+Using scp batch size of 1.Attempting to SCP into 1 nodes with a total of 1 workers.
+SCP: Attempting to connect to worker 0...
+-rw-r--r-- 1 root root 61M Oct 31 10:23 /data/pika/v6-latent-upscale/outputs/pixar_1min.mp4
+[10:23:57] PIPELINE DONE: /data/pika/v6-latent-upscale/outputs/pixar_1min.mp4

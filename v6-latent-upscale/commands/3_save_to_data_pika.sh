@@ -4,6 +4,6 @@
 set -euo pipefail
 . "$(dirname "$0")/common.sh"
 mkdir -p "$LOCAL_OUT"
-tpu_scp "$TPU:/dev/shm/pika/outputs/*" "$LOCAL_OUT/"
+tpu_scp --recurse "$TPU:/dev/shm/pika/outputs/*" "$LOCAL_OUT/"
 ls -lh "$LOCAL_OUT"
 echo "STEP 3 done: files are in $LOCAL_OUT"

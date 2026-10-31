@@ -1,0 +1,36 @@
+{
+  "job_index": 1,
+  "workflow": "t2va",
+  "prompt": "integrated_multimodal_description: Handheld documentary footage in overcast natural daylight. An ordinary Tamil village woman in her thirties stands at the doorway of an old tiled-roof house in a Tamil Nadu village. She wears no makeup and has a natural, plain complexion, with a few loose strands of grey-black hair and a faded cotton saree. She talks casually in Tamil to someone just off-camera, glancing away and back, with small natural hand gestures. The camera moves slightly as if held by hand. Muted natural colors, documentary realism.\noverall_soundscape: Quiet village morning, a few birds, a distant scooter, a woman speaking casually in Tamil to someone nearby.\nnon_diegetic_music: None.",
+  "image": null,
+  "seed": 42,
+  "duration_s": 5,
+  "frames": 124,
+  "base": "832x480",
+  "output": "1664x960",
+  "upscale": 2.0,
+  "refine_from": 250,
+  "process_setup_s": 20.43,
+  "stage1_s": 209.66,
+  "stage1_steps_s": [
+    37.767,
+    4.768,
+    4.708,
+    4.606,
+    4.704,
+    4.538
+  ],
+  "upscale_s": 60.32,
+  "refine_s": 209.84,
+  "refine_steps_s": [
+    79.39,
+    31.5,
+    31.518
+  ],
+  "encode_mp4_s": 2.17,
+  "text_encoder_s": 6.02,
+  "video_vae_decode_s": 124.91,
+  "audio_vae_decode_s": 82.08,
+  "job_s": 482.86,
+  "output_sha256": "d999e18c0baf365eba02483a84e0845c58cf7a648d6314411c91e23e871e9e2b"
+}

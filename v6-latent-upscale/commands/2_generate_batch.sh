@@ -37,6 +37,16 @@ while read -r prompt name rest; do
 done < "$JOBS"
 tpu_scp "$remote_jobs" "$TPU":~/jobs.txt; rm -f "$remote_jobs"
 
+if [ "${DETACH:-0}" = 1 ]; then
+  # Start the run detached on the TPU and return at once (used by 6_auto_pipeline.sh). It keeps running if SSH drops;
+  # the flock stops a second copy if gcloud retries this command. Exit code goes to ~/batch.rc, log to ~/run_batch.log.
+  tpu_ssh "rm -f ~/batch.rc; setsid nohup flock -n /tmp/pika_batch.lock bash -c '. ~/pika-venv/bin/activate; \
+    export PJRT_DEVICE=TPU XLA_CACHE_DIR=/dev/shm/pika/xla_cache; \
+    python ~/generate_pika_tpu.py --jobs ~/jobs.txt $GEN_ARGS > ~/run_batch.log 2>&1; echo \$? > ~/batch.rc' \
+    > /dev/null 2>&1 < /dev/null & sleep 2; echo started detached"
+  exit 0
+fi
+
 tpu_ssh "set -o pipefail; . ~/pika-venv/bin/activate; export PJRT_DEVICE=TPU XLA_CACHE_DIR=/dev/shm/pika/xla_cache; \
   python ~/generate_pika_tpu.py --jobs ~/jobs.txt $GEN_ARGS 2>&1 | tee ~/run_batch.log | grep --line-buffered -E '^\[|Error|Traceback'"
 
